@@ -1,0 +1,39 @@
+name: Deploy to Hostatom
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:        # กดรันเองได้จากแท็บ Actions
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        # เพิ่ม lightningcss binary ของ Linux — จำเป็นสำหรับ build Tailwind v4 บน CI
+        run: |
+          npm install
+          npm install -D lightningcss-linux-x64-gnu
+
+      - name: Build Static HTML
+        run: npm run build
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/
+          # git_deploy_6 = system user ของทั้ง webspace (6 โดเมน) → login แล้วอยู่ที่ root
+          # ของ webspace จึงต้องชี้เข้าโฟลเดอร์ย่อยของ lampang (เหมือน smartdata)
+          server-dir: ./lampang.webdemona.com/
+          protocol: ftp
+          dangerous-clean-slate: false
