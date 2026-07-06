@@ -1,6 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Section, SectionHeader, Card, Pill, Note, FadeUp } from '../components/ui.jsx';
 import { OverviewMap } from '../components/diagrams.jsx';
+
+// Illustrated aerial map of the bridge + 3 approach roads.
+// Falls back to the schematic SVG (OverviewMap) if the image file isn't present.
+function OverviewVisual() {
+  const [failed, setFailed] = useState(false);
+  if (failed) return <OverviewMap />;
+  return (
+    <figure className="m-0">
+      <img
+        src="./images/lampang/overview_map.png"
+        alt="ผังมุมสูงบริเวณสะพานรัษฎาภิเศก · R1 ฝั่งใต้ · R2 ฝั่งเหนือ · R3 ตลาดเก่า"
+        onError={() => setFailed(true)}
+        className="w-full block rounded-xl"
+        style={{ border: '1px solid var(--h-line)' }}
+      />
+      <figcaption className="text-[12.5px] mt-2 text-center" style={{ color: 'var(--h-muted)' }}>
+        มุมสูงบริเวณสะพานรัษฎาภิเศก · <span style={{ color: 'var(--h-red)' }}>R1</span> ฝั่งใต้ ·{' '}
+        <span style={{ color: 'var(--h-green2)' }}>R2</span> ฝั่งเหนือ ·{' '}
+        <span style={{ color: 'var(--h-gold)' }}>R3</span> ตลาดเก่า
+      </figcaption>
+    </figure>
+  );
+}
 
 export default function Overview() {
   return (
@@ -11,9 +34,9 @@ export default function Overview() {
         lead="R1 + R2 คือถนนรัษฎาเส้นเดียวกันที่ข้ามสะพาน (เรียงแนวตั้ง) · R3 ตลาดเก่าเป็นแยกซ้ายที่คอสะพานใต้ · ส่วนราชบุตรและเจริญประเทศมีป้ายห้ามเลี้ยวขึ้นสะพานอยู่แล้ว จึงตัดออก"
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-[minmax(0,380px)_1fr] gap-8 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-[minmax(0,440px)_1fr] gap-8 items-start">
         <FadeUp>
-          <OverviewMap />
+          <OverviewVisual />
         </FadeUp>
 
         <FadeUp delay={0.08} className="flex flex-col gap-4">
