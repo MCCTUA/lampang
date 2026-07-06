@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  /* Heritage palette — Rashadapisek Bridge (108 years) · green + gold + cream */
+  --h-green:        #1F5C3D;   /* deep forest green — primary */
+  --h-green2:       #2F7D54;   /* mid green — accents / lines */
+  --h-green-deep:   #143F2A;   /* darkest green — footer / hero base */
+  --h-cream:        #F6F1E4;   /* cream — light section bg */
+  --h-cream-soft:   #FBF8EF;   /* softer cream — cards */
+  --h-paper:        #FFFDF7;   /* near-white card */
+  --h-ink:          #22271F;   /* near-black text */
+  --h-muted:        #6B6B5E;   /* muted text */
+  --h-gold:         #C8781E;   /* amber / gold — warnings, heritage accent */
+  --h-gold-soft:    #F5E9D3;
+  --h-red:          #B8382E;   /* alert / "cut out" */
+  --h-red-soft:     #F3E1DF;
+  --h-line:         #D9D2BE;   /* hairline border */
+  --h-road:         #CFC9B8;   /* road fill in diagrams */
+
+  --font-thai: 'Sarabun', 'Noto Sans Thai', system-ui, sans-serif;
+  --font-latin: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+body {
+  font-family: var(--font-thai);
+  color: var(--h-ink);
+  background: var(--h-cream);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+html { scroll-behavior: smooth; }
+a { text-decoration: none; color: inherit; }
+
+/* Latin numerals / codes render in Inter for crisp figures */
+.latin { font-family: var(--font-latin); font-feature-settings: "tnum"; }
+
+/* Diagram SVG default frame */
+.diagram {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: var(--h-paper);
+  border: 1px solid var(--h-line);
+  border-radius: 12px;
+}
+
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+@media print {
+  nav, .no-print { display: none !important; }
+  body { background: #fff; }
+  section { break-inside: avoid; }
+}
