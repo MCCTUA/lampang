@@ -56,21 +56,21 @@ const SENSORS = [
 // Radar & LiDAR outlined together to show they must be paired.
 function VennDiagram() {
   return (
-    <svg viewBox="0 0 470 340" style={{ width: '100%', height: 'auto', display: 'block' }} role="img" aria-label="Venn 3 เซนเซอร์">
+    <svg viewBox="0 0 470 372" style={{ width: '100%', height: 'auto', display: 'block' }} role="img" aria-label="Venn 3 เซนเซอร์">
       {/* circles */}
-      <circle cx="180" cy="145" r="115" fill={G} fillOpacity="0.24" stroke={G} strokeWidth="3" />
-      <circle cx="300" cy="145" r="115" fill={GOLD} fillOpacity="0.22" stroke={GOLD} strokeWidth="2" />
-      <circle cx="240" cy="235" r="115" fill={RED} fillOpacity="0.20" stroke={RED} strokeWidth="3" strokeDasharray="7 5" />
+      <circle cx="180" cy="140" r="112" fill={G} fillOpacity="0.24" stroke={G} strokeWidth="3" />
+      <circle cx="290" cy="140" r="112" fill={GOLD} fillOpacity="0.22" stroke={GOLD} strokeWidth="2" />
+      <circle cx="235" cy="228" r="112" fill={RED} fillOpacity="0.20" stroke={RED} strokeWidth="3" strokeDasharray="7 5" />
       {/* outer labels */}
-      <text x="95" y="70" fontSize="15" fontWeight="800" fill={G} textAnchor="middle">เรดาร์</text>
-      <text x="95" y="88" fontSize="11" fill="#555" textAnchor="middle">ทุกสภาพอากาศ</text>
-      <text x="385" y="70" fontSize="15" fontWeight="800" fill="#8A5A12" textAnchor="middle">กล้อง</text>
-      <text x="385" y="88" fontSize="11" fill="#555" textAnchor="middle">หลักฐาน/บริบท</text>
-      <text x="240" y="325" fontSize="15" fontWeight="800" fill={RED} textAnchor="middle">LiDAR</text>
-      <text x="240" y="342" fontSize="11" fill="#555" textAnchor="middle">รูปทรงแม่น</text>
+      <text x="92" y="60" fontSize="15" fontWeight="800" fill={G} textAnchor="middle">เรดาร์</text>
+      <text x="92" y="78" fontSize="11" fill="#555" textAnchor="middle">ทุกสภาพอากาศ</text>
+      <text x="386" y="60" fontSize="15" fontWeight="800" fill="#8A5A12" textAnchor="middle">กล้อง</text>
+      <text x="386" y="78" fontSize="11" fill="#555" textAnchor="middle">หลักฐาน/บริบท</text>
+      <text x="235" y="354" fontSize="15" fontWeight="800" fill={RED} textAnchor="middle">LiDAR</text>
+      <text x="235" y="370" fontSize="11" fill="#555" textAnchor="middle">รูปทรงแม่น</text>
       {/* centre */}
-      <text x="240" y="158" fontSize="14.5" fontWeight="800" fill={G} textAnchor="middle">แก้ครบ</text>
-      <text x="240" y="178" fontSize="16" fontWeight="800" fill={G} textAnchor="middle">ทุกปัญหา ✓</text>
+      <text x="235" y="150" fontSize="14.5" fontWeight="800" fill={G} textAnchor="middle">แก้ครบ</text>
+      <text x="235" y="170" fontSize="16" fontWeight="800" fill={G} textAnchor="middle">ทุกปัญหา ✓</text>
     </svg>
   );
 }
