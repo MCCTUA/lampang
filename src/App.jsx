@@ -13,7 +13,7 @@ import { RoadR1, RoadR2, RoadR3 } from './sections/RoadsSplit.jsx';
 import Cabinet from './sections/Cabinet.jsx';
 import Timeline from './sections/Timeline.jsx';
 import Survey from './sections/Survey.jsx';
-import EngineeringFAQ from './sections/EngineeringFAQ.jsx';
+import { Faq1, Faq2, Faq3, Faq4 } from './sections/FaqPages.jsx';
 import LidarAppendix from './sections/LidarAppendix.jsx';
 import QA from './sections/QA.jsx';
 
@@ -34,8 +34,11 @@ const slides = [
   { id: 'r2', label: 'R2 · รัษฎาเหนือ (แผนที่+อุปกรณ์+รูป)', node: <RoadR2 /> },
   { id: 'r3', label: 'R3 · ตลาดเก่า (แผนที่+อุปกรณ์+รูป)', node: <RoadR3 /> },
   { id: 'timeline', label: 'Timeline (Gantt · 120 วัน)', node: <Timeline /> },
+  { id: 'faq1', label: 'Q&A · ความแม่นยำ & การตรวจจับ', node: <Faq1 /> },
+  { id: 'faq2', label: 'Q&A · ระบบ/ไฟฟ้า/เครือข่าย', node: <Faq2 /> },
+  { id: 'faq3', label: 'Q&A · สภาพแวดล้อม · ไม้กั้น/ปลอดภัย', node: <Faq3 /> },
+  { id: 'faq4', label: 'Q&A · กฎหมาย · ดูแลรักษา · มรดก', node: <Faq4 /> },
   { id: 'survey', label: 'วัดหน้างาน', node: <Survey /> },
-  { id: 'faq', label: 'FAQ วิศวกรรม', node: <EngineeringFAQ /> },
   { id: 'lidar', label: 'ภาคผนวก LiDAR', node: <LidarAppendix /> },
   { id: 'qa', label: 'คำถาม & ขอคำแนะนำ', node: <QA /> },
   { id: 'cabinet', label: 'งานส่วนเพิ่ม · เก็บข้อมูลรวม (4G/Fiber)', node: <Cabinet /> },
