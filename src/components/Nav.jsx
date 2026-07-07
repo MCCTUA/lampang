@@ -10,6 +10,7 @@ const NAV = [
   { id: 'cabinet', label: 'ตู้ควบคุม' },
   { id: 'timeline', label: 'Timeline' },
   { id: 'faq', label: 'FAQ วิศวกรรม' },
+  { id: 'lidar', label: 'LiDAR' },
   { id: 'qa', label: 'คำถาม' },
 ];
 

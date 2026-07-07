@@ -11,6 +11,7 @@ import Cabinet from './sections/Cabinet.jsx';
 import Timeline from './sections/Timeline.jsx';
 import Survey from './sections/Survey.jsx';
 import EngineeringFAQ from './sections/EngineeringFAQ.jsx';
+import LidarAppendix from './sections/LidarAppendix.jsx';
 import QA from './sections/QA.jsx';
 
 // Single-page presentation. HashRouter is used for static-hosting
@@ -29,6 +30,7 @@ function Page() {
         <Timeline />
         <Survey />
         <EngineeringFAQ />
+        <LidarAppendix />
         <QA />
       </main>
       <Footer />
