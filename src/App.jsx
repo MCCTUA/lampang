@@ -12,10 +12,10 @@ import Barrier from './sections/Barrier.jsx';
 import { RoadR1, RoadR2, RoadR3 } from './sections/RoadsSplit.jsx';
 import Cabinet from './sections/Cabinet.jsx';
 import Timeline from './sections/Timeline.jsx';
-import Survey from './sections/Survey.jsx';
 import { Faq1, Faq2, Faq3, Faq4 } from './sections/FaqPages.jsx';
 import { Lidar1, Lidar2, Lidar3, Lidar4 } from './sections/LidarAppendix.jsx';
-import QA from './sections/QA.jsx';
+import { SpecSheet1, SpecSheet2, SpecSheet3 } from './sections/SpecSheet.jsx';
+import ConfirmTN from './sections/ConfirmTN.jsx';
 
 // Fixed-slide deck (1280×720). Each entry is one slide; long sections are
 // auto-scaled to fit for now and will be split into multiple slides next.
@@ -38,12 +38,14 @@ const slides = [
   { id: 'faq2', label: 'Q&A · ระบบ/ไฟฟ้า/เครือข่าย', node: <Faq2 /> },
   { id: 'faq3', label: 'Q&A · สภาพแวดล้อม · ไม้กั้น/ปลอดภัย', node: <Faq3 /> },
   { id: 'faq4', label: 'Q&A · กฎหมาย · ดูแลรักษา · มรดก', node: <Faq4 /> },
-  { id: 'survey', label: 'วัดหน้างาน', node: <Survey /> },
+  { id: 'spec1', label: 'สเปกอุปกรณ์ 1/3 (เซนเซอร์+สมองกล AI)', node: <SpecSheet1 /> },
+  { id: 'spec2', label: 'สเปกอุปกรณ์ 2/3 (ไม้กั้น+ป้าย+ไฟ)', node: <SpecSheet2 /> },
+  { id: 'spec3', label: 'สเปกอุปกรณ์ 3/3 (ไฟฟ้า+ลูกระนาด+โครงสร้าง)', node: <SpecSheet3 /> },
   { id: 'lidar1', label: 'LiDAR · หลักการทำงาน', node: <Lidar1 /> },
   { id: 'lidar2', label: 'LiDAR · โซน & สีผิว', node: <Lidar2 /> },
   { id: 'lidar3', label: 'LiDAR · ติดตั้ง & บำรุงรักษา', node: <Lidar3 /> },
   { id: 'lidar4', label: 'LiDAR · ข้อจำกัด', node: <Lidar4 /> },
-  { id: 'qa', label: 'คำถาม & ขอคำแนะนำ', node: <QA /> },
+  { id: 'confirm', label: 'สิ่งที่ต้องยืนยันกับ ทน. (ทำได้/ไม่ได้)', node: <ConfirmTN /> },
   { id: 'cabinet', label: 'งานส่วนเพิ่ม · เก็บข้อมูลรวม (4G/Fiber)', node: <Cabinet /> },
 ];
 

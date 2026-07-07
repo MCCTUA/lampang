@@ -18,6 +18,16 @@
 ## รูปป้าย LED (หน้า "ป้ายจอ LED")
 - `led_sign.png` — ป้ายจอ LED ติดตั้งจริง
 
+## รูปหน้าสเปกอุปกรณ์ (Spec Sheet 3 หน้า)
+- `equip_ai_box.png` — สมองกลประมวลผล AI (Edge AI Box)
+- `equip_barrier.png` — ไม้กั้นจำกัดความสูง
+- `equip_ir.png` — ไฟส่องอินฟราเรด (IR)
+- `equip_strobe.png` — ไฟสัญญาณเตือน (strobe) + ลำโพง
+- `equip_mdb.png` — ตู้ควบคุม + ตู้ไฟ MDB
+- `equip_ups.png` — UPS / แบตเตอรี่สำรอง
+- `equip_speedbump.png` — ลูกระนาดยาง
+- `equip_pole.png` — เสา/โครงติดตั้ง + เครือข่าย
+
 ## R1 — รัษฎาใต้
 - `R1_1_entry.png`
 - `R1_2_led.png`

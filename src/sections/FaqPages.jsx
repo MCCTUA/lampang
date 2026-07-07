@@ -21,7 +21,7 @@ function FaqPage({ id, tone, kicker, title, groups }) {
       <div style={{ marginTop: 14, display: 'flex', flexDirection: 'column', gap: 14 }}>
         {groups.map((grp) => (
           <div key={grp.title}>
-            <div style={{ fontSize: 15, fontWeight: 800, color: G2, marginBottom: 8 }}>{grp.title}</div>
+            {groups.length > 1 && <div style={{ fontSize: 15, fontWeight: 800, color: G2, marginBottom: 8 }}>{grp.title}</div>}
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
               {grp.items.map(([q, a]) => <QAItem key={q} q={q} a={a} />)}
             </div>
@@ -88,14 +88,14 @@ const HERITAGE = {
 };
 
 export function Faq1() {
-  return <FaqPage id="faq1" tone="cream" kicker="Q&A · เตรียมตอบคำถามที่วิศวกรมักถาม" title="เตรียมตอบคำถามที่วิศวกรมักถาม (1/4)" groups={[ACCURACY]} />;
+  return <FaqPage id="faq1" tone="cream" kicker="Q&A" title="ความแม่นยำ & การตรวจจับ (1/4)" groups={[ACCURACY]} />;
 }
 export function Faq2() {
-  return <FaqPage id="faq2" tone="soft" kicker="Q&A (ต่อ)" title="ระบบ / ไฟฟ้า / เครือข่าย (2/4)" groups={[SYSTEM]} />;
+  return <FaqPage id="faq2" tone="soft" kicker="Q&A" title="ระบบ / ไฟฟ้า / เครือข่าย (2/4)" groups={[SYSTEM]} />;
 }
 export function Faq3() {
-  return <FaqPage id="faq3" tone="cream" kicker="Q&A (ต่อ)" title="สภาพแวดล้อม · ไม้กั้น/ความปลอดภัย (3/4)" groups={[ENV, SAFETY]} />;
+  return <FaqPage id="faq3" tone="cream" kicker="Q&A" title="สภาพแวดล้อม · ไม้กั้น/ความปลอดภัย (3/4)" groups={[ENV, SAFETY]} />;
 }
 export function Faq4() {
-  return <FaqPage id="faq4" tone="soft" kicker="Q&A (ต่อ)" title="กฎหมาย · ดูแลรักษา · มรดก (4/4)" groups={[LEGAL, TCO, HERITAGE]} />;
+  return <FaqPage id="faq4" tone="soft" kicker="Q&A" title="กฎหมาย · ดูแลรักษา · มรดก (4/4)" groups={[LEGAL, TCO, HERITAGE]} />;
 }
