@@ -6,8 +6,11 @@ import Hero from './sections/Hero.jsx';
 import Overview from './sections/Overview.jsx';
 import Barrier from './sections/Barrier.jsx';
 import Roads from './sections/Roads.jsx';
+import Equipment from './sections/Equipment.jsx';
 import Cabinet from './sections/Cabinet.jsx';
+import Timeline from './sections/Timeline.jsx';
 import Survey from './sections/Survey.jsx';
+import EngineeringFAQ from './sections/EngineeringFAQ.jsx';
 import QA from './sections/QA.jsx';
 
 // Single-page presentation. HashRouter is used for static-hosting
@@ -21,8 +24,11 @@ function Page() {
         <Overview />
         <Barrier />
         <Roads />
+        <Equipment />
         <Cabinet />
+        <Timeline />
         <Survey />
+        <EngineeringFAQ />
         <QA />
       </main>
       <Footer />

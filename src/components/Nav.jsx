@@ -6,8 +6,10 @@ const NAV = [
   { id: 'overview', label: 'ภาพรวม' },
   { id: 'barrier', label: 'ไม้กั้น 3.3 ม.' },
   { id: 'roads', label: '3 เส้นทาง' },
+  { id: 'equipment', label: 'อุปกรณ์' },
   { id: 'cabinet', label: 'ตู้ควบคุม' },
-  { id: 'survey', label: 'วัดหน้างาน' },
+  { id: 'timeline', label: 'Timeline' },
+  { id: 'faq', label: 'FAQ วิศวกรรม' },
   { id: 'qa', label: 'คำถาม' },
 ];
 
