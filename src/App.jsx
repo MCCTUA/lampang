@@ -9,7 +9,7 @@ import { WhySensorsMain, WhySensorsFusion } from './sections/WhySensors.jsx';
 import LedSign from './sections/LedSign.jsx';
 import BarrierSpec from './sections/BarrierSpec.jsx';
 import Barrier from './sections/Barrier.jsx';
-import Roads from './sections/Roads.jsx';
+import { RoadR1, RoadR2, RoadR3 } from './sections/RoadsSplit.jsx';
 import Cabinet from './sections/Cabinet.jsx';
 import Timeline from './sections/Timeline.jsx';
 import Survey from './sections/Survey.jsx';
@@ -30,7 +30,9 @@ const slides = [
   { id: 'led', label: 'ป้ายจอ LED (ข้อดี+ระยะ+BOQ)', node: <LedSign /> },
   { id: 'barrier-spec', label: 'ไม้กั้น — BOQ & สเปก + ลูกระนาด', node: <BarrierSpec /> },
   { id: 'barrier', label: 'ไม้กั้น = ประตูจำกัดความสูง 3.3 ม.', node: <Barrier /> },
-  { id: 'roads', label: '3 เส้นทาง (R1/R2/R3)', node: <Roads /> },
+  { id: 'r1', label: 'R1 · รัษฎาใต้ (แผนที่+อุปกรณ์+รูป)', node: <RoadR1 /> },
+  { id: 'r2', label: 'R2 · รัษฎาเหนือ (แผนที่+อุปกรณ์+รูป)', node: <RoadR2 /> },
+  { id: 'r3', label: 'R3 · ตลาดเก่า (แผนที่+อุปกรณ์+รูป)', node: <RoadR3 /> },
   { id: 'cabinet', label: 'ตู้ควบคุม', node: <Cabinet /> },
   { id: 'timeline', label: 'Timeline จัดหา–ติดตั้ง–จูน', node: <Timeline /> },
   { id: 'survey', label: 'วัดหน้างาน', node: <Survey /> },
