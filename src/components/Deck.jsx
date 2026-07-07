@@ -18,7 +18,7 @@ function computeViewportScale() {
   return Math.min(availW / 1280, availH / 720, 1);
 }
 
-function AutoSlide({ children }) {
+function AutoSlide({ children, num, total }) {
   const [vp, setVp] = useState(computeViewportScale);
   const [fit, setFit] = useState(1);
   const contentRef = useRef(null);
@@ -70,6 +70,15 @@ function AutoSlide({ children }) {
         >
           {children}
         </div>
+        {num && (
+          <div style={{
+            position: 'absolute', bottom: 16, right: 22, fontSize: 13, fontWeight: 700,
+            color: 'rgba(20,40,30,0.55)', background: 'rgba(255,255,255,0.72)',
+            borderRadius: 20, padding: '2px 11px', letterSpacing: 0.3,
+          }}>
+            {num} / {total}
+          </div>
+        )}
       </div>
     </div>
   );
@@ -162,7 +171,7 @@ export default function Deck({ slides }) {
       <div className="deck-root">
         {slides.map((s, i) => (
           <div key={s.id} id={`slide-${i + 1}`}>
-            <AutoSlide>{s.node}</AutoSlide>
+            <AutoSlide num={i + 1} total={slides.length}>{s.node}</AutoSlide>
           </div>
         ))}
       </div>

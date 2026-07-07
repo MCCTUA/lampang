@@ -52,6 +52,29 @@ const SENSORS = [
   },
 ];
 
+// 3-circle Venn — each circle a sensor; centre = solves everything.
+// Radar & LiDAR outlined together to show they must be paired.
+function VennDiagram() {
+  return (
+    <svg viewBox="0 0 470 340" style={{ width: '100%', height: 'auto', display: 'block' }} role="img" aria-label="Venn 3 เซนเซอร์">
+      {/* circles */}
+      <circle cx="180" cy="145" r="115" fill={G} fillOpacity="0.24" stroke={G} strokeWidth="3" />
+      <circle cx="300" cy="145" r="115" fill={GOLD} fillOpacity="0.22" stroke={GOLD} strokeWidth="2" />
+      <circle cx="240" cy="235" r="115" fill={RED} fillOpacity="0.20" stroke={RED} strokeWidth="3" strokeDasharray="7 5" />
+      {/* outer labels */}
+      <text x="95" y="70" fontSize="15" fontWeight="800" fill={G} textAnchor="middle">เรดาร์</text>
+      <text x="95" y="88" fontSize="11" fill="#555" textAnchor="middle">ทุกสภาพอากาศ</text>
+      <text x="385" y="70" fontSize="15" fontWeight="800" fill="#8A5A12" textAnchor="middle">กล้อง</text>
+      <text x="385" y="88" fontSize="11" fill="#555" textAnchor="middle">หลักฐาน/บริบท</text>
+      <text x="240" y="325" fontSize="15" fontWeight="800" fill={RED} textAnchor="middle">LiDAR</text>
+      <text x="240" y="342" fontSize="11" fill="#555" textAnchor="middle">รูปทรงแม่น</text>
+      {/* centre */}
+      <text x="240" y="158" fontSize="14.5" fontWeight="800" fill={G} textAnchor="middle">แก้ครบ</text>
+      <text x="240" y="178" fontSize="16" fontWeight="800" fill={G} textAnchor="middle">ทุกปัญหา ✓</text>
+    </svg>
+  );
+}
+
 export function WhySensorsMain() {
   return (
     <Section id="why1" tone="cream">
@@ -63,7 +86,7 @@ export function WhySensorsMain() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16, marginTop: 14 }}>
         {SENSORS.map((s) => (
           <div key={s.name} style={{ background: '#fff', border: '1px solid var(--h-line)', borderTop: `5px solid ${s.color}`, borderRadius: 14, overflow: 'hidden' }}>
-            <Photo file={s.file} h={158} />
+            <Photo file={s.file} h={118} />
             <div style={{ background: s.soft, padding: '9px 14px' }}>
               <div style={{ fontSize: 16, fontWeight: 800, color: s.color }}>{s.name}</div>
               <div style={{ fontSize: 12, color: 'var(--h-ink)', marginTop: 2, lineHeight: 1.3 }}>{s.role}</div>
@@ -77,11 +100,20 @@ export function WhySensorsMain() {
           </div>
         ))}
       </div>
-      <div style={{ marginTop: 14, background: 'var(--h-green-deep)', color: '#F3EFE2', borderRadius: 14, padding: '13px 20px' }}>
-        <div style={{ fontSize: 14.5, fontWeight: 800, color: '#E7C46A', marginBottom: 4 }}>หลักการเสริมกัน (fusion)</div>
-        <div style={{ fontSize: 13.5, lineHeight: 1.5 }}>
-          เรดาร์สู้หมอก/ฝน/มืด · LiDAR แม่นเชิงรูปทรง · กล้องให้บริบทและหลักฐาน → <strong style={{ color: '#fff' }}>ไม่มีสภาพใดที่ระบบตาบอดพร้อมกันทั้งหมด</strong> · ตัดสินแบบ voting ลดทั้งกั้นรถปกติผิด และปล่อยรถสูงหลุด
+      <div style={{ marginTop: 14, display: 'grid', gridTemplateColumns: '1fr 300px', gap: 20, alignItems: 'center' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+          <div style={{ background: 'var(--h-green-deep)', color: '#F3EFE2', borderRadius: 12, padding: '11px 18px' }}>
+            <div style={{ fontSize: 14, fontWeight: 800, color: '#E7C46A', marginBottom: 3 }}>หลักการเสริมกัน (fusion)</div>
+            <div style={{ fontSize: 13, lineHeight: 1.5 }}>
+              จุดร่วมของทั้ง 3 วง = <strong style={{ color: '#fff' }}>แก้ครบทุกปัญหา</strong> · ไม่มีสภาพใดที่ระบบตาบอดพร้อมกัน · ตัดสินแบบ voting ลดทั้งกั้นรถปกติผิด และปล่อยรถสูงหลุด
+            </div>
+          </div>
+          <div style={{ background: 'var(--h-red-soft)', border: `1.5px dashed ${RED}`, borderRadius: 12, padding: '10px 16px' }}>
+            <span style={{ fontSize: 13.5, fontWeight: 800, color: RED }}>⚠ ถ้ามี LiDAR ต้องมีเรดาร์ด้วย</span>
+            <span style={{ fontSize: 13, color: 'var(--h-ink)' }}> — เรดาร์ปลุก LiDAR (ยืดอายุ) + สู้หมอก/ฝนที่ LiDAR แพ้ (วง LiDAR เส้นประ = ต้องจับคู่กับวงเรดาร์)</span>
+          </div>
         </div>
+        <VennDiagram />
       </div>
     </Section>
   );
