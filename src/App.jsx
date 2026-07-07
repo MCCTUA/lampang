@@ -2,6 +2,8 @@ import React from 'react';
 import Deck from './components/Deck.jsx';
 import Hero from './sections/Hero.jsx';
 import Overview from './sections/Overview.jsx';
+import Zones from './sections/Zones.jsx';
+import SpeedDistance from './sections/SpeedDistance.jsx';
 import Barrier from './sections/Barrier.jsx';
 import Roads from './sections/Roads.jsx';
 import Equipment from './sections/Equipment.jsx';
@@ -17,6 +19,8 @@ import QA from './sections/QA.jsx';
 const slides = [
   { id: 'hero', label: 'ปก · สะพานรัษฎาภิเศก 108 ปี', node: <Hero /> },
   { id: 'overview', label: 'ภาพรวมระบบ · 3 เส้นทาง', node: <Overview /> },
+  { id: 'zones', label: '3 โซนต่อถนน (อุปกรณ์+ข้อจำกัด)', node: <Zones /> },
+  { id: 'speed', label: 'ความเร็ว × ระยะทาง ต่อโซน', node: <SpeedDistance /> },
   { id: 'barrier', label: 'ไม้กั้น 3.3 ม.', node: <Barrier /> },
   { id: 'roads', label: '3 เส้นทาง (R1/R2/R3)', node: <Roads /> },
   { id: 'equipment', label: 'อุปกรณ์ & เหตุผลวิศวกรรม', node: <Equipment /> },
