@@ -7,12 +7,11 @@ export default function Hero() {
   const go = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
   return (
-    <section
+    <div
       id="hero"
-      className="relative min-h-[92vh] flex items-center px-5 sm:px-6 pt-14"
+      className="slide-section relative overflow-hidden"
       style={{
-        background:
-          'radial-gradient(120% 90% at 80% 0%, #256B47 0%, #1F5C3D 45%, #143F2A 100%)',
+        background: 'radial-gradient(120% 90% at 80% 0%, #256B47 0%, #1F5C3D 45%, #143F2A 100%)',
         color: '#F6EFD9',
       }}
     >
@@ -31,7 +30,7 @@ export default function Hero() {
         ))}
       </svg>
 
-      <div className="max-w-[1040px] mx-auto w-full relative">
+      <div className="relative flex items-center" style={{ minHeight: 720, padding: '44px 84px' }}>
         <motion.div
           initial={{ opacity: 0, y: 26 }}
           animate={{ opacity: 1, y: 0 }}
@@ -97,6 +96,6 @@ export default function Hero() {
           </div>
         </motion.div>
       </div>
-    </section>
+    </div>
   );
 }

@@ -27,7 +27,7 @@ export function FadeUp({ children, delay = 0, className = '' }) {
   );
 }
 
-// Section — full-width band with light / cream / dark tone options.
+// Section — one deck slide surface (1280×720). Content is centred at ~1112px.
 export function Section({ id, tone = 'cream', className = '', children }) {
   const tones = {
     cream: { background: 'var(--h-cream)', color: 'var(--h-ink)' },
@@ -37,13 +37,9 @@ export function Section({ id, tone = 'cream', className = '', children }) {
     green: { background: 'var(--h-green)', color: '#F3EFE2' },
   };
   return (
-    <section
-      id={id}
-      className={`px-5 sm:px-6 py-16 sm:py-24 scroll-mt-16 ${className}`}
-      style={tones[tone]}
-    >
-      <div className="max-w-[1040px] mx-auto">{children}</div>
-    </section>
+    <div id={id} className={`slide-section ${className}`} style={tones[tone]}>
+      <div style={{ padding: '44px 84px' }}>{children}</div>
+    </div>
   );
 }
 
@@ -97,7 +93,7 @@ export function Card({ accent, className = '', children, style }) {
   };
   return (
     <div
-      className={`rounded-xl p-5 sm:p-6 ${className}`}
+      className={`avoid-break rounded-xl p-5 sm:p-6 ${className}`}
       style={{
         background: 'var(--h-paper)',
         border: '1px solid var(--h-line)',
@@ -130,9 +126,9 @@ export function Pill({ variant = 'eco', children }) {
 }
 
 // Note — muted small print (e.g. "ระยะเป็นค่าประมาณ").
-export function Note({ children, className = '' }) {
+export function Note({ children, className = '', style }) {
   return (
-    <p className={`text-[13.5px] leading-relaxed ${className}`} style={{ color: 'var(--h-muted)' }}>
+    <p className={`text-[13.5px] leading-relaxed ${className}`} style={{ color: 'var(--h-muted)', ...style }}>
       {children}
     </p>
   );

@@ -33,7 +33,7 @@ html, body {
 body {
   font-family: var(--font-thai);
   color: var(--h-ink);
-  background: var(--h-cream);
+  background: #D8D2C2; /* deck backdrop — makes the white "slide pages" pop */
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
@@ -57,8 +57,61 @@ a { text-decoration: none; color: inherit; }
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
+/* =========================================================================
+ * Fixed 1280×720 slide deck (same model as the ElderlyCare deck)
+ * — each Section is one slide, auto-scaled to fit both the slide and the
+ *   viewport. Printing maps 1 slide → one 1280×720 page.
+ * ========================================================================= */
+.deck-root {
+  background: #5C665E;            /* muted green-gray backdrop */
+  min-height: 100dvh;
+  padding-top: 54px;
+  padding-bottom: 40px;
+  max-width: 100vw;
+  overflow-x: clip;
+}
+.deck-toolbar {
+  position: fixed; top: 0; left: 0; right: 0; height: 44px;
+  background: var(--h-green-deep); color: #fff;
+  display: flex; align-items: center; gap: 14px; padding: 0 16px; z-index: 60;
+  font-size: 13px; box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  font-family: 'Sarabun', system-ui, sans-serif;
+}
+.deck-toolbar button {
+  font-family: inherit; background: rgba(255,255,255,.16); color: #fff; border: none;
+  padding: 6px 14px; border-radius: 6px; cursor: pointer; font-size: 13px; transition: background .15s;
+}
+.deck-toolbar button:hover { background: rgba(255,255,255,.30); }
+.deck-toolbar .note { opacity: .82; font-size: 12px; }
+
+.slide-wrapper { margin: 0 auto 22px; overflow: hidden; }
+.slide-scale { transform-origin: top left; box-shadow: 0 12px 40px rgba(0,0,0,.38); overflow: hidden; background: #fff; }
+.slide-fit  { transform-origin: top center; }
+
+/* one slide's content surface */
+.slide-section { width: 1280px; min-height: 720px; position: relative; }
+
+.scroll-dots {
+  position: fixed; right: max(14px, env(safe-area-inset-right, 14px)); top: 50%;
+  transform: translateY(-50%); display: flex; flex-direction: column; gap: 8px; z-index: 55;
+  background: rgba(0,0,0,0.32); padding: 12px 8px; border-radius: 100px;
+  max-height: calc(100dvh - 130px); overflow-y: auto; scrollbar-width: none;
+}
+.scroll-dots::-webkit-scrollbar { display: none; }
+@media (max-width: 980px) { .scroll-dots { display: none !important; } }
+
 @media print {
-  nav, .no-print { display: none !important; }
-  body { background: #fff; }
-  section { break-inside: avoid; }
+  @page { size: 1280px 720px; margin: 0; }
+  html, body { background: #fff !important; overflow: visible !important; }
+  nav, .deck-toolbar, .scroll-dots, .no-print { display: none !important; }
+  .deck-root { background: #fff !important; padding: 0 !important; margin: 0 !important; }
+  .slide-wrapper { margin: 0 !important; width: 1280px !important; height: 720px !important; overflow: hidden; }
+  .slide-scale { transform: none !important; box-shadow: none !important; page-break-after: always; }
+  .overflow-x-auto { overflow: visible !important; }
+  details > *:not(summary) { display: block !important; }
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
 }
