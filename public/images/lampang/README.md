@@ -15,6 +15,9 @@
 - `case_black_pickup.png` — รถกระบะคอกสีดำ (เปล่า)
 - `case_steel_load.png` — รถพาดเหล็ก/ไม้ยาวสูง
 
+## รูปป้าย LED (หน้า "ป้ายจอ LED")
+- `led_sign.png` — ป้ายจอ LED ติดตั้งจริง
+
 ## R1 — รัษฎาใต้
 - `R1_1_entry.png`
 - `R1_2_led.png`
