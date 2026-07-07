@@ -6,6 +6,7 @@ import Zones from './sections/Zones.jsx';
 import SpeedDistance from './sections/SpeedDistance.jsx';
 import Frames from './sections/Frames.jsx';
 import { WhySensorsMain, WhySensorsFusion } from './sections/WhySensors.jsx';
+import LedSign from './sections/LedSign.jsx';
 import Barrier from './sections/Barrier.jsx';
 import Roads from './sections/Roads.jsx';
 import Cabinet from './sections/Cabinet.jsx';
@@ -25,6 +26,7 @@ const slides = [
   { id: 'frames', label: 'จำนวนเฟรม/สแกน vs ความเร็ว', node: <Frames /> },
   { id: 'why1', label: 'ทำไมใช้ 3 เซนเซอร์ · บทบาท+ข้อดี/ข้อจำกัด', node: <WhySensorsMain /> },
   { id: 'why2', label: 'ทำไมใช้ 3 เซนเซอร์ · เสริมกัน+เคสยาก', node: <WhySensorsFusion /> },
+  { id: 'led', label: 'ป้ายจอ LED (ข้อดี+ระยะ+BOQ)', node: <LedSign /> },
   { id: 'barrier', label: 'ไม้กั้น 3.3 ม.', node: <Barrier /> },
   { id: 'roads', label: '3 เส้นทาง (R1/R2/R3)', node: <Roads /> },
   { id: 'cabinet', label: 'ตู้ควบคุม', node: <Cabinet /> },
