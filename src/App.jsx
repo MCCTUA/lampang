@@ -14,7 +14,7 @@ import Cabinet from './sections/Cabinet.jsx';
 import Timeline from './sections/Timeline.jsx';
 import Survey from './sections/Survey.jsx';
 import { Faq1, Faq2, Faq3, Faq4 } from './sections/FaqPages.jsx';
-import LidarAppendix from './sections/LidarAppendix.jsx';
+import { Lidar1, Lidar2, Lidar3, Lidar4 } from './sections/LidarAppendix.jsx';
 import QA from './sections/QA.jsx';
 
 // Fixed-slide deck (1280×720). Each entry is one slide; long sections are
@@ -39,7 +39,10 @@ const slides = [
   { id: 'faq3', label: 'Q&A · สภาพแวดล้อม · ไม้กั้น/ปลอดภัย', node: <Faq3 /> },
   { id: 'faq4', label: 'Q&A · กฎหมาย · ดูแลรักษา · มรดก', node: <Faq4 /> },
   { id: 'survey', label: 'วัดหน้างาน', node: <Survey /> },
-  { id: 'lidar', label: 'ภาคผนวก LiDAR', node: <LidarAppendix /> },
+  { id: 'lidar1', label: 'LiDAR · หลักการทำงาน', node: <Lidar1 /> },
+  { id: 'lidar2', label: 'LiDAR · โซน & สีผิว', node: <Lidar2 /> },
+  { id: 'lidar3', label: 'LiDAR · ติดตั้ง & บำรุงรักษา', node: <Lidar3 /> },
+  { id: 'lidar4', label: 'LiDAR · ข้อจำกัด', node: <Lidar4 /> },
   { id: 'qa', label: 'คำถาม & ขอคำแนะนำ', node: <QA /> },
   { id: 'cabinet', label: 'งานส่วนเพิ่ม · เก็บข้อมูลรวม (4G/Fiber)', node: <Cabinet /> },
 ];
