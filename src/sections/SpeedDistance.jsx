@@ -101,6 +101,24 @@ export default function SpeedDistance() {
           <p style={{ fontSize: 12, color: 'var(--h-muted)', marginTop: 6 }}>
             ✓ = กล้องวัดความสูงแม่น + ระบบทำงานทัน · ⚠ = เร็วเกินไปสำหรับกล้อง (ต้องพึ่ง LiDAR/เรดาร์ หรือบังคับให้ช้าลง)
           </p>
+
+          {/* formulas behind the table */}
+          <div style={{ marginTop: 10, background: '#fff', border: '1px solid var(--h-line)', borderRadius: 10, padding: '10px 14px' }}>
+            <div style={{ fontSize: 12.5, fontWeight: 700, color: G, marginBottom: 6, letterSpacing: 0.3 }}>สูตรที่ใช้คำนวณ</div>
+            <div style={{ fontSize: 13, color: 'var(--h-ink)', lineHeight: 1.7 }}>
+              <div>
+                <strong>อยู่ในกรอบ 10 ม.</strong> = 10 ÷ v &nbsp;
+                <span style={{ color: 'var(--h-muted)' }}>โดย v (ม./วิ) = ความเร็ว (กม./ชม.) ÷ 3.6</span>
+              </div>
+              <div>
+                <strong>ระยะหยุดรถ</strong> = (v × t<sub>r</sub>) + (v² ÷ 2a) &nbsp;
+                <span style={{ color: 'var(--h-muted)' }}>= ระยะช่วงคิด + ระยะเบรก</span>
+              </div>
+            </div>
+            <div style={{ fontSize: 12, color: 'var(--h-muted)', marginTop: 6 }}>
+              สมมติฐาน: กรอบตรวจ 10 ม. · เวลาตอบสนองคนขับ t<sub>r</sub> = 1.5 วิ · อัตราหน่วงเบรก a = 4.0 ม./วิ² (≈ μ 0.41) — ค่าออกแบบเชิงอนุรักษ์ ยืนยันด้วยการทดสอบหน้างาน
+            </div>
+          </div>
         </div>
 
         <div style={{ background: 'var(--h-gold-soft)', border: `1px solid var(--h-gold)`, borderRadius: 14, padding: '16px 18px' }}>

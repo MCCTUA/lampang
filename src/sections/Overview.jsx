@@ -84,12 +84,12 @@ export default function Overview() {
             <Card accent="green" style={{ padding: '14px 18px' }}>
               <Pill variant="eco">ประหยัด</Pill>
               <div className="font-semibold" style={{ marginTop: 6, fontSize: 14.5 }}>กล้องประเมินความสูง</div>
-              <Note className="mt-1" style={{ fontSize: 13 }}>ทำงานดีเมื่อรถช้า · ลงทุนต่ำ</Note>
+              <Note className="mt-1" style={{ fontSize: 13 }}>ทำงานดีเมื่อรถช้า · คุ้มค่างบประมาณ</Note>
             </Card>
             <Card accent="gold" style={{ padding: '14px 18px' }}>
               <Pill variant="full">เต็มระบบ</Pill>
               <div className="font-semibold" style={{ marginTop: 6, fontSize: 14.5 }}>เรดาร์ + สแกน + กล้องบันทึกเหตุการณ์</div>
-              <Note className="mt-1" style={{ fontSize: 13 }}>แม่นขึ้น · รองรับรถเร็ว/สายไฟหนา</Note>
+              <Note className="mt-1" style={{ fontSize: 13 }}>อุปกรณ์มาตรฐานสากล · ความแม่นยำสูง · รองรับรถเร็ว/สายไฟหนา</Note>
             </Card>
           </div>
           <Note style={{ fontSize: 12.5 }}>ทั้ง 2 ระดับใช้ตำแหน่งติดตั้งชุดเดียวกัน ต่างที่ตัวเซนเซอร์ · ระยะเป็นค่าประมาณ ยืนยันด้วยการวัดหน้างาน</Note>
