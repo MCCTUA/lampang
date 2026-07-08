@@ -15,15 +15,20 @@ function Header({ kicker, title, lead }) {
   );
 }
 
+// light-gold gradient backdrop + drop-shadow so device cutouts sit on a warm
+// yellow tone (never white) with a grounded shadow
+const IMG_BG = 'radial-gradient(circle at 50% 42%, #FCF0CC 0%, #F3DEA0 60%, #E7CB80 100%)';
+const IMG_SHADOW = 'drop-shadow(0 9px 8px rgba(88,58,10,0.30))';
+
 // image with graceful dashed fallback
 function Photo({ file, h = 96, radius = 0, caption, fit = 'cover' }) {
   const [failed, setFailed] = useState(false);
   const box = { width: '100%', height: h, borderRadius: radius };
-  const pad = fit === 'contain' ? 6 : 0;
+  const pad = fit === 'contain' ? 12 : 0;
   return (
     <figure style={{ margin: 0 }}>
       {!failed ? (
-        <img src={`./images/lampang/${file}`} alt={caption || ''} onError={() => setFailed(true)} style={{ ...box, objectFit: fit, padding: pad, display: 'block', boxSizing: 'border-box', background: 'var(--h-gold-soft)' }} />
+        <img src={`./images/lampang/${file}`} alt={caption || ''} onError={() => setFailed(true)} style={{ ...box, objectFit: fit, padding: pad, display: 'block', boxSizing: 'border-box', background: fit === 'contain' ? IMG_BG : 'var(--h-gold-soft)', filter: fit === 'contain' ? IMG_SHADOW : 'none' }} />
       ) : (
         <div style={{ ...box, border: '2px dashed var(--h-gold)', background: 'var(--h-gold-soft)', color: '#7A5A1E', fontSize: 11.5, display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: 6 }}>
           วางรูป: {file}
@@ -37,17 +42,17 @@ function Photo({ file, h = 96, radius = 0, caption, fit = 'cover' }) {
 /* ---------- Page 1 · roles + strengths/limits + fusion ---------- */
 const SENSORS = [
   {
-    color: G, soft: '#E7F0E9', file: 'sensor_radar_p6.png', name: 'เรดาร์', role: 'ยามด่านหน้า — ปลุก sensor หลักเฉพาะตอนจำเป็น',
+    color: G, soft: '#E7F0E9', file: 'sensor_radar.png', name: 'เรดาร์', role: 'ยามด่านหน้า — ปลุก sensor หลักเฉพาะตอนจำเป็น',
     pros: ['ตรวจจับรถได้ทุกสภาพอากาศ กลางคืน/หมอก', 'คัดกรอง → ยืดอายุ LiDAR'],
     cons: ['วัดความสูง/รูปทรงละเอียดไม่ได้'],
   },
   {
-    color: GOLD, soft: 'var(--h-gold-soft)', file: 'sensor_camera_p6.png', name: 'กล้องคู่ (ITS)', role: 'ประเมินความสูง + เก็บภาพหลักฐานเหตุการณ์',
+    color: GOLD, soft: 'var(--h-gold-soft)', file: 'sensor_camera.png', name: 'กล้องคู่ (ITS)', role: 'ประเมินความสูง + เก็บภาพหลักฐานเหตุการณ์',
     pros: ['ให้หลักฐาน+บริบทเหตุการณ์', 'อ่านป้ายทะเบียน'],
     cons: ['แม่นเมื่อรถช้า · แสงจ้า/หมอกลดระยะ'],
   },
   {
-    color: RED, soft: 'var(--h-red-soft)', file: 'sensor_lidar_p6.png', name: 'เซนเซอร์สแกน (LiDAR)', role: 'วัดรูปทรง/ความสูงแม่นยำ ไม่พึ่งแสง',
+    color: RED, soft: 'var(--h-red-soft)', file: 'sensor_lidar.png', name: 'เซนเซอร์สแกน (LiDAR)', role: 'วัดรูปทรง/ความสูงแม่นยำ ไม่พึ่งแสง',
     pros: ['วัดสูงแม่นเชิงรูปทรง', 'เร็ว ไม่ต้องสะสมหลายเฟรม'],
     cons: ['ผิวดำ/เปียก สะท้อนน้อย → ระยะสั้นลง', 'มีชิ้นส่วนหมุน อายุจำกัด'],
   },
@@ -64,7 +69,7 @@ export function WhySensorsMain() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16, marginTop: 14 }}>
         {SENSORS.map((s) => (
           <div key={s.name} style={{ background: '#fff', border: '1px solid var(--h-line)', borderTop: `5px solid ${s.color}`, borderRadius: 14, overflow: 'hidden' }}>
-            <Photo file={s.file} h={220} fit="cover" />
+            <Photo file={s.file} h={210} fit="contain" />
             <div style={{ background: s.soft, padding: '9px 14px' }}>
               <div style={{ fontSize: 16, fontWeight: 800, color: s.color }}>{s.name}</div>
               <div style={{ fontSize: 12, color: 'var(--h-ink)', marginTop: 2, lineHeight: 1.3 }}>{s.role}</div>

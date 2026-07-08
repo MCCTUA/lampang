@@ -3,12 +3,14 @@ import { Section } from '../components/ui.jsx';
 
 const G = 'var(--h-green)';
 const GOLD = 'var(--h-gold)';
+const IMG_BG = 'radial-gradient(circle at 50% 40%, #FCF0CC 0%, #F3DEA0 60%, #E7CB80 100%)';
+const IMG_SHADOW = 'drop-shadow(0 9px 8px rgba(88,58,10,0.30))';
 
 // รูป 6 แบบ: วางไฟล์ชื่อ Thai_Identity_Boom_Gate_1.png ... _6.png ใน public/images/lampang/
 function DesignImg({ file, n }) {
   const [failed, setFailed] = useState(false);
-  const box = { width: '100%', height: 232, borderRadius: 12, display: 'block', background: 'var(--h-gold-soft)' };
-  if (!failed) return <img src={`./images/lampang/${file}`} alt={`แบบที่ ${n}`} onError={() => setFailed(true)} style={{ ...box, objectFit: 'contain', padding: 8, border: '1px solid var(--h-line)' }} />;
+  const box = { width: '100%', height: 232, borderRadius: 12, display: 'block', background: IMG_BG };
+  if (!failed) return <img src={`./images/lampang/${file}`} alt={`แบบที่ ${n}`} onError={() => setFailed(true)} style={{ ...box, objectFit: 'contain', padding: 8, border: '1px solid var(--h-line)', filter: IMG_SHADOW }} />;
   return <div style={{ ...box, border: `2px dashed ${GOLD}`, color: '#7A5A1E', fontSize: 12.5, display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: 8 }}>วางรูป: {file}</div>;
 }
 
