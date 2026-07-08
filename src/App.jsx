@@ -6,6 +6,7 @@ import Zones from './sections/Zones.jsx';
 import SpeedDistance from './sections/SpeedDistance.jsx';
 import Frames from './sections/Frames.jsx';
 import { WhySensorsMain, WhySensorsFusion } from './sections/WhySensors.jsx';
+import SensorReview from './sections/SensorReview.jsx';
 import LedSign from './sections/LedSign.jsx';
 import BarrierSpec from './sections/BarrierSpec.jsx';
 import Barrier from './sections/Barrier.jsx';
@@ -27,6 +28,7 @@ const slides = [
   { id: 'frames', label: 'จำนวนเฟรม/สแกน vs ความเร็ว', node: <Frames /> },
   { id: 'why1', label: 'ทำไมใช้ 3 เซนเซอร์ · บทบาท+ข้อดี/ข้อจำกัด', node: <WhySensorsMain /> },
   { id: 'why2', label: 'ทำไมใช้ 3 เซนเซอร์ · เสริมกัน+เคสยาก', node: <WhySensorsFusion /> },
+  { id: 'review', label: 'รีวิวความสามารถ · สภาพอากาศ (PM2.5)', node: <SensorReview /> },
   { id: 'led', label: 'ป้ายจอ LED (ข้อดี+ระยะ+BOQ)', node: <LedSign /> },
   { id: 'barrier-spec', label: 'ไม้กั้น — BOQ & สเปก + ลูกระนาด', node: <BarrierSpec /> },
   { id: 'barrier', label: 'ไม้กั้น = ประตูจำกัดความสูง 3.3 ม.', node: <Barrier /> },
