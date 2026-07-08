@@ -64,9 +64,14 @@ export default function Frames() {
         <MiniTable title="2 · ความเร็ว vs สแกน LiDAR" head2="สแกน (~50Hz)" render={(r) => <span className="latin">{r.l} สแกน</span>} />
         <MiniTable title="3 · ประเมินรวม (เฟรม + สแกน)" head2="ความเหมาะสม" render={(r) => <><Stars n={r.stars} />{r.target ? <span style={{ fontSize: 11.5, color: G, marginLeft: 6 }}>เป้าหมาย</span> : null}</>} />
       </div>
-      <p style={{ fontSize: 11.5, color: 'var(--h-muted)', marginTop: 7 }}>
-        สมมติฐาน (ค่าประมาณการ): กล้อง 30 เฟรม/วินาที · LiDAR ~50 สแกน/วินาที · กรอบตรวจ 10 เมตร · ยืนยันด้วยการทดสอบหน้างาน
-      </p>
+      <div style={{ marginTop: 8, background: '#fff', border: '1px solid var(--h-line)', borderRadius: 10, padding: '9px 14px' }}>
+        <div style={{ fontSize: 12, fontWeight: 700, color: G, marginBottom: 4 }}>ที่มาของค่าในตาราง (ค่าอ้างอิง · ยืนยันด้วยการทดสอบหน้างาน)</div>
+        <div style={{ fontSize: 12, color: 'var(--h-ink)', lineHeight: 1.55 }}>
+          <div><strong>กล้อง 30 fps</strong> = อัตราจริงของกล้อง LPR ที่ความละเอียดเต็ม (4MP) · shutter เร็ว ≤ 1/100,000 วิ แยกจาก fps (หยุดภาพไม่เบลอ)</div>
+          <div><strong>LiDAR ~50 Hz</strong> = จุดทำงานตัวแทน (ปรับได้ 10–80 Hz) · ยิ่ง Hz สูง ยิ่งได้สแกนถี่ = margin มากขึ้น</div>
+          <div><strong>กรอบตรวจ 10 ม.</strong> = ระยะ baseline กล้องคู่ · ไกลกว่านี้ error ความสูงเพิ่ม จึงคุมกรอบไว้</div>
+        </div>
+      </div>
 
       {/* 2 conclusion cards */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18, marginTop: 14 }}>
