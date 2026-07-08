@@ -16,13 +16,14 @@ function Header({ kicker, title, lead }) {
 }
 
 // image with graceful dashed fallback
-function Photo({ file, h = 96, radius = 0, caption }) {
+function Photo({ file, h = 96, radius = 0, caption, fit = 'cover' }) {
   const [failed, setFailed] = useState(false);
   const box = { width: '100%', height: h, borderRadius: radius };
+  const pad = fit === 'contain' ? 6 : 0;
   return (
     <figure style={{ margin: 0 }}>
       {!failed ? (
-        <img src={`./images/lampang/${file}`} alt={caption || ''} onError={() => setFailed(true)} style={{ ...box, objectFit: 'cover', display: 'block', boxSizing: 'border-box', background: 'var(--h-gold-soft)' }} />
+        <img src={`./images/lampang/${file}`} alt={caption || ''} onError={() => setFailed(true)} style={{ ...box, objectFit: fit, padding: pad, display: 'block', boxSizing: 'border-box', background: 'var(--h-gold-soft)' }} />
       ) : (
         <div style={{ ...box, border: '2px dashed var(--h-gold)', background: 'var(--h-gold-soft)', color: '#7A5A1E', fontSize: 11.5, display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: 6 }}>
           วางรูป: {file}
@@ -63,7 +64,7 @@ export function WhySensorsMain() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16, marginTop: 14 }}>
         {SENSORS.map((s) => (
           <div key={s.name} style={{ background: '#fff', border: '1px solid var(--h-line)', borderTop: `5px solid ${s.color}`, borderRadius: 14, overflow: 'hidden' }}>
-            <Photo file={s.file} h={168} />
+            <Photo file={s.file} h={168} fit="contain" />
             <div style={{ background: s.soft, padding: '9px 14px' }}>
               <div style={{ fontSize: 16, fontWeight: 800, color: s.color }}>{s.name}</div>
               <div style={{ fontSize: 12, color: 'var(--h-ink)', marginTop: 2, lineHeight: 1.3 }}>{s.role}</div>

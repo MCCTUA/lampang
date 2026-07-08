@@ -8,7 +8,7 @@ const GOLD = 'var(--h-gold)';
 function DesignImg({ file, n }) {
   const [failed, setFailed] = useState(false);
   const box = { width: '100%', height: 232, borderRadius: 12, display: 'block', background: 'var(--h-gold-soft)' };
-  if (!failed) return <img src={`./images/lampang/${file}`} alt={`แบบที่ ${n}`} onError={() => setFailed(true)} style={{ ...box, objectFit: 'cover', border: '1px solid var(--h-line)' }} />;
+  if (!failed) return <img src={`./images/lampang/${file}`} alt={`แบบที่ ${n}`} onError={() => setFailed(true)} style={{ ...box, objectFit: 'contain', padding: 8, border: '1px solid var(--h-line)' }} />;
   return <div style={{ ...box, border: `2px dashed ${GOLD}`, color: '#7A5A1E', fontSize: 12.5, display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: 8 }}>วางรูป: {file}</div>;
 }
 
