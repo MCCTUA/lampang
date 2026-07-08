@@ -230,7 +230,7 @@ export default function Equipment() {
           ))}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <Card accent="green">เซนเซอร์อยู่ <strong>ต้นน้ำก่อนป้าย</strong> เพื่อให้ระบบตรวจ+ตัดสินเสร็จ “ก่อน” รถถึงป้าย → ป้ายแสดงข้อความถูกต้องทันเวลา</Card>
+          <Card accent="green">เซนเซอร์อยู่ <strong>ต้นทางก่อนป้าย</strong> เพื่อให้ระบบตรวจ+ตัดสินเสร็จ “ก่อน” รถถึงป้าย → ป้ายแสดงข้อความถูกต้องทันเวลา</Card>
           <Card accent="green">ป้าย LED อยู่ <strong>ก่อนคอสะพานพอให้คนขับหยุดทัน</strong> — ระยะหยุด ~21 ม. ที่ 30 กม./ชม. · ~45 ม. ที่ 50 กม./ชม.</Card>
           <Card accent="gold">แยกห่างยัง <strong>กันแสงจ้า/ไฟกระพริบของป้ายรบกวนกล้อง</strong> และไม่ให้โครงป้ายบังมุมเรดาร์/ตัวสแกน</Card>
         </div>

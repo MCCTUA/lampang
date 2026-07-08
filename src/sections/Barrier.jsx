@@ -45,7 +45,7 @@ export default function Barrier() {
         <div style={{ fontSize: 14, fontWeight: 800, color: G, marginBottom: 6 }}>ลำดับการทำงาน (2 จุด)</div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, fontSize: 13.3, lineHeight: 1.5 }}>
           <div>
-            <strong style={{ color: G }}>① ปากทาง (ต้นน้ำ):</strong> ประเมินความสูง (กล้อง/เรดาร์/สแกน) + ป้ายเตือนล่วงหน้า
+            <strong style={{ color: G }}>① ปากทาง (ต้นทาง):</strong> ประเมินความสูง (กล้อง/เรดาร์/สแกน) + ป้ายเตือนล่วงหน้า
           </div>
           <div>
             <strong style={{ color: G }}>② คอสะพาน:</strong> กล้องบันทึกภาพเหตุการณ์ + ไม้กั้นพับลง + ไฟวับวาบ + เสียงเตือน

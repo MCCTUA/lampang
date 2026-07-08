@@ -51,7 +51,7 @@ const SET1 = [
 ];
 
 const SET2 = [
-  { file: 'equip_barrier.png', name: 'ไม้กั้นจำกัดความสูง (boom barrier)', specs: ['แขนกั้นจำกัดความสูง 3.3 ม. + กล่องควบคุม · fail-safe พับหนีต้นน้ำ', 'safety photo-eye (เซนเซอร์กันหนีบ) + loop detector ใต้ผิวถนน', 'เวลาขึ้น–ลง ~2–6 วิ (ปรับได้) · มอเตอร์ + encoder ตำแหน่ง', 'สั่งงานผ่าน relay/GPIO จาก Edge AI · IP54–65 · 220 VAC'] },
+  { file: 'equip_barrier.png', name: 'ไม้กั้นจำกัดความสูง (boom barrier)', specs: ['แขนกั้นจำกัดความสูง 3.3 ม. + กล่องควบคุม · fail-safe พับเก็บ (ด้านโล่ง)', 'safety photo-eye (เซนเซอร์กันหนีบ) + loop detector ใต้ผิวถนน', 'เวลาขึ้น–ลง ~2–6 วิ (ปรับได้) · มอเตอร์ + encoder ตำแหน่ง', 'สั่งงานผ่าน relay/GPIO จาก Edge AI · IP54–65 · 220 VAC'] },
   { file: 'led_sign.png', cover: true, name: 'ป้ายจอ LED เตือนล่วงหน้า', specs: ['full-color outdoor · pixel pitch P3.91 (3.91 มม.)', 'ขนาดจอ ~1.5 × 0.5 ม. · ความละเอียด 384 × 128 พิกเซล', 'ความสว่างสูงสู้แดด + auto-dimming · อ่านชัด ~30–50 ม.', 'ควบคุมข้อความเรียลไทม์ (Ethernet/RS-485) · IP65 · 220 VAC'] },
   { file: 'equip_ir.png', cover: true, name: 'ไฟส่องอินฟราเรด (IR) ช่วยกล้อง', specs: ['ความยาวคลื่น 850 / 940 nm · ระยะส่อง ~30–50 ม.', 'มุมกระจาย 30–60° · เปิดอัตโนมัติกลางคืน (ช่วยกล้องอ่านป้าย)', 'IP66 · 12–24 VDC'] },
   { file: 'equip_strobe.png', cover: true, name: 'ไฟสัญญาณเตือน (strobe) + ลำโพง', specs: ['strobe LED สว่างสูง · กระพริบปรับได้ · เห็นไกล', 'ลำโพงเตือน 115–123 dB · มีหน่วยเสียง (MP3) ในตัว (“รถสูงเกิน 3.3 ม.”)', 'กันน้ำ IP · 12–24 VDC'] },
