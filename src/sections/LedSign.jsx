@@ -33,7 +33,7 @@ function DistanceStrip() {
 }
 
 const BOQ = [
-  ['ป้ายแสดงผล LED', 'จอ full-color กลางแจ้ง · ปรับความสว่างอัตโนมัติ'],
+  ['ป้ายแสดงผล LED', 'full-color outdoor P3.91 · 1.5×0.5 ม. · 384×128 px · ปรับสว่างอัตโนมัติ'],
   ['ตู้ควบคุม', 'ชุดควบคุมป้าย + สั่งการอุปกรณ์ในโซน'],
   ['Edge AI Computer', 'ประมวลผล AI เรียลไทม์ที่หน้างาน (edge)'],
   ['Network System', 'อุปกรณ์เครือข่าย (Switch/Router) + เชื่อมต่อระหว่างจุด'],
@@ -49,6 +49,21 @@ export default function LedSign() {
       <h2 className="font-bold tracking-tight mt-3" style={{ fontSize: 30, lineHeight: 1.15, color: G }}>
         ป้ายจอ LED — เตือนล่วงหน้า อ่านง่ายทุกเพศทุกวัย
       </h2>
+
+      {/* screen spec chips */}
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 8 }}>
+        {[
+          ['ขนาดจอ', '~1.5 × 0.5 ม.'],
+          ['ความละเอียด', '384 × 128 พิกเซล'],
+          ['pixel pitch', 'P3.91 (3.91 มม.)'],
+          ['ชนิด', 'full-color outdoor'],
+        ].map(([k, v]) => (
+          <span key={k} style={{ fontSize: 12.8, background: '#fff', border: '1px solid var(--h-line)', borderRadius: 999, padding: '5px 12px' }}>
+            <span style={{ color: 'var(--h-muted)' }}>{k}: </span>
+            <span style={{ color: G, fontWeight: 800 }}>{v}</span>
+          </span>
+        ))}
+      </div>
 
       {/* top half: image (left) + cards (right) */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.15fr', gap: 20, marginTop: 14, alignItems: 'stretch' }}>

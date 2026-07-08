@@ -3,17 +3,19 @@ import { Section } from '../components/ui.jsx';
 
 const G = 'var(--h-green)';
 
-function Photo({ file }) {
+function Photo({ file, img }) {
   const [failed, setFailed] = useState(false);
   const box = { width: '100%', height: '100%', minHeight: 92 };
-  if (!failed) return <img src={`./images/lampang/${file}`} alt="" onError={() => setFailed(true)} style={{ ...box, objectFit: 'cover', borderRadius: 8, border: '1px solid var(--h-line)', display: 'block' }} />;
+  // `img` = full URL (ideal reference photo from net · no brand) · fallback to local file · fallback to labeled box
+  const src = img || (file ? `./images/lampang/${file}` : '');
+  if (src && !failed) return <img src={src} alt="" onError={() => setFailed(true)} style={{ ...box, objectFit: 'cover', borderRadius: 8, border: '1px solid var(--h-line)', display: 'block' }} />;
   return <div style={{ ...box, border: '2px dashed var(--h-gold)', background: 'var(--h-gold-soft)', color: '#7A5A1E', fontSize: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 8, textAlign: 'center', padding: 4 }}>{file}</div>;
 }
 
-function SpecRow({ file, name, specs }) {
+function SpecRow({ file, img, name, specs }) {
   return (
     <div style={{ display: 'grid', gridTemplateColumns: '140px 1fr', gap: 14, background: '#fff', border: '1px solid var(--h-line)', borderLeft: `5px solid ${G}`, borderRadius: 12, padding: 11, alignItems: 'center' }}>
-      <Photo file={file} />
+      <Photo file={file} img={img} />
       <div>
         <div style={{ fontSize: 15, fontWeight: 800, color: G, marginBottom: 4 }}>{name}</div>
         <ul style={{ margin: 0, paddingLeft: 16, fontSize: 12.6, lineHeight: 1.5 }}>
@@ -38,24 +40,24 @@ function SpecPage({ id, tone, title, rows }) {
 }
 
 const SET1 = [
-  { file: 'sensor_radar.png', name: 'เรดาร์ตรวจจับยานพาหนะ', specs: ['ความถี่ 76–77 GHz (FMCW mmWave)', 'ระยะตรวจจับสูงสุด ~150–200 ม. · วัดความเร็ว 0–~250 กม./ชม.', 'ความแม่นระยะ ±0.1–0.5 ม. · มุมมอง ~±60° · ติดตามหลายเป้าพร้อมกัน', 'ทุกสภาพอากาศ (กลางคืน/หมอก/ฝน) · IP67 · 12–24 VDC'] },
-  { file: 'sensor_camera.png', name: 'กล้องบันทึกเหตุการณ์ (ITS)', specs: ['เซนเซอร์ 2–4 MP (1080p/1440p) · 25–60 fps', 'ชัตเตอร์ 1/1000–1/10000 วิ (หยุดภาพไม่เบลอ) · WDR ≥ 120 dB', 'Day/Night + IR-cut · เลนส์ varifocal · GigE/RTSP', 'IP67 · -30 ถึง +60°C · PoE/12 VDC'] },
-  { file: 'sensor_lidar.png', name: 'เซนเซอร์สแกนระยะ (2D LiDAR)', specs: ['Time-of-flight 905 nm · Class 1 (ปลอดภัยต่อสายตา)', 'มุมสแกน ~275° · อัตรา 10–80 Hz · ละเอียด 0.05–0.25°', 'ระยะ 0.08–25 ม. (สะท้อน 90%) · ±10 มม. · ทำซ้ำ ≤5 มม.', 'โซนตรวจสูงสุด ~16 ชุด × 3 โซน · IP67 · Ethernet + I/O'] },
-  { file: 'equip_ai_box.png', name: 'Edge AI Computer', specs: ['หน่วยเร่ง AI ~20–100 TOPS · GPU + CPU + AI accelerator ในตัว', 'ประมวลผลเรียลไทม์หน้างาน รองรับหลายกล้อง/เซนเซอร์ · ไม่พึ่งเครือข่าย', 'I/O: GPIO คุมไม้กั้น/ป้าย/strobe · Ethernet · 4G/5G', 'อุณหภูมิใช้งานกว้าง (industrial) · 12–19 VDC'] },
+  { file: 'sensor_lidar.png', name: 'เลเซอร์สแกนเนอร์ 2D วัดความสูงรถ', specs: ['สแกนเลเซอร์ 2D (time-of-flight) · Class 1 ปลอดภัยต่อสายตา', 'ประเมิน “เขตความสูง” @3.30 ม. ในตัวสแกนเนอร์ → ส่งสัญญาณ on/off ตรงเข้า Edge AI', 'เอาต์พุต 5 ช่อง (PNP) + อินพุต 4 ช่อง · Ethernet 100BASE-TX (M12) สำหรับตั้งค่า', 'ติดตั้งสูง ~4.3 ม. ก้ม ~18° · IP67 · จ่ายไฟ 24 VDC'] },
+  { file: 'sensor_camera.png', name: 'กล้องบันทึกเหตุการณ์ + อ่านป้าย (ITS)', specs: ['ความละเอียด 4 MP (2560×1440) · เลนส์ moto varifocal 2.8–12 มม.', 'ชัตเตอร์เร็วสุด ~1/100,000 วิ (รถ ~40 กม./ชม. ใช้ ~1/1000 ภาพไม่เบลอ)', 'อ่านป้ายทะเบียนเป็นหลักฐาน + วัดสูงแบบเส้นอ้างอิงเสมือน · WDR · IR-cut', 'PoE · บันทึกที่ NVR 8CH PoE 4K + HDD (เก็บ ~44 วัน) · IP67'] },
+  { file: 'sensor_radar.png', name: 'เรดาร์ตรวจจับรถเข้าพื้นที่ (trigger)', specs: ['คลื่นวิทยุ (mmWave) · ทำงานทุกสภาพอากาศ กลางคืน/หมอก/PM2.5/ฝน', 'บทบาทหลัก: ตรวจจับรถเข้าพื้นที่ → สั่งกล้องถ่าย + “ปลุก” สแกนเนอร์เฉพาะตอนจำเป็น', 'ตรวจได้หลายเป้าพร้อมกัน · ต่อ dry-contact / RS-485 · ไม่ขึ้นกับสีรถ', 'IP67 · 12–24 VDC · ไม่ใช้เป็นตัววัดความสูง (คลาดจากมุม/ระยะ)'] },
+  { file: 'equip_ai_box.png', name: 'Edge AI Computer (ประมวลผลหน้างาน)', specs: ['หน่วยเร่ง AI ระดับ ~100 TOPS (GPU+CPU+AI accelerator) · RAM 16 GB', 'รวมข้อมูล 3 เซนเซอร์ (fusion) ประมวลผลเรียลไทม์ · ไม่พึ่งเครือข่าย', 'I/O: รับสัญญาณสแกนเนอร์ (PNP/DI) · USB-RS485 · relay 4ch คุมไม้กั้น/ป้าย/strobe', 'Ethernet + เชื่อม 4G/5G ส่ง event ขึ้น cloud · ช่วงอุณหภูมิกว้าง · 12–19 VDC'] },
 ];
 
 const SET2 = [
-  { file: 'equip_barrier.png', name: 'ไม้กั้นจำกัดความสูง', specs: ['ความสูงจำกัด 3.3 ม. · แขนคลุมเลนเดียว', 'ความเร็วขึ้น–ลง ~2–6 วินาที (ปรับได้)', 'fail-safe: พับหนีทางต้นน้ำ · ข้อต่อ sacrificial + สลิงกันปลิว', 'มอเตอร์ + encoder ตำแหน่ง · คุมผ่าน GPIO · IP54–65 · 220 VAC'] },
-  { file: 'led_sign.png', name: 'ป้ายจอ LED', specs: ['full-color outdoor · pixel pitch ~P6–P10', 'ความสว่าง ~5,000–7,000 nits · auto-dimming', 'ระยะอ่านชัด ~30–50 ม. · ควบคุมข้อความเรียลไทม์', 'IP65 · 220 VAC'] },
-  { file: 'equip_ir.png', name: 'ไฟส่องอินฟราเรด (IR)', specs: ['ความยาวคลื่น 850 / 940 nm · ระยะส่อง ~30–50 ม.', 'มุมกระจาย 30–60° · เปิดอัตโนมัติกลางคืน (ช่วยกล้อง)', 'IP66 · 12–24 VDC'] },
-  { file: 'equip_strobe.png', name: 'ไฟสัญญาณเตือน (strobe) + ลำโพง', specs: ['strobe LED สว่างสูง · ความถี่กระพริบปรับได้ · เห็นไกล', 'ลำโพงเสียงเตือน/ประกาศ ~110 dB (“รถสูงเกิน 3.3 ม.”)', 'IP66 · 12–24 VDC'] },
+  { file: 'equip_barrier.png', name: 'ไม้กั้นจำกัดความสูง (boom barrier)', specs: ['แขนกั้นจำกัดความสูง 3.3 ม. + กล่องควบคุม · fail-safe พับหนีต้นน้ำ', 'safety photo-eye (เซนเซอร์กันหนีบ) + loop detector ใต้ผิวถนน', 'เวลาขึ้น–ลง ~2–6 วิ (ปรับได้) · มอเตอร์ + encoder ตำแหน่ง', 'สั่งงานผ่าน relay/GPIO จาก Edge AI · IP54–65 · 220 VAC'] },
+  { file: 'led_sign.png', name: 'ป้ายจอ LED เตือนล่วงหน้า', specs: ['full-color outdoor · pixel pitch P3.91 (3.91 มม.)', 'ขนาดจอ ~1.5 × 0.5 ม. · ความละเอียด 384 × 128 พิกเซล', 'ความสว่างสูงสู้แดด + auto-dimming · อ่านชัด ~30–50 ม.', 'ควบคุมข้อความเรียลไทม์ (Ethernet/RS-485) · IP65 · 220 VAC'] },
+  { file: 'equip_ir.png', name: 'ไฟส่องอินฟราเรด (IR) ช่วยกล้อง', specs: ['ความยาวคลื่น 850 / 940 nm · ระยะส่อง ~30–50 ม.', 'มุมกระจาย 30–60° · เปิดอัตโนมัติกลางคืน (ช่วยกล้องอ่านป้าย)', 'IP66 · 12–24 VDC'] },
+  { file: 'equip_strobe.png', name: 'ไฟสัญญาณเตือน (strobe) + ลำโพง', specs: ['strobe LED สว่างสูง · กระพริบปรับได้ · เห็นไกล', 'ลำโพงเตือน 115–123 dB · มีหน่วยเสียง (MP3) ในตัว (“รถสูงเกิน 3.3 ม.”)', 'กันน้ำ IP · 12–24 VDC'] },
 ];
 
 const SET3 = [
-  { file: 'equip_mdb.png', name: 'ตู้ควบคุม + ตู้ไฟ MDB', specs: ['ตู้เหล็ก/สแตนเลส IP54–65 · มีระบายความร้อน', 'MDB: เมนเบรกเกอร์ + RCD กันไฟรั่ว + surge protection', 'รวมชุดควบคุมอุปกรณ์ในโซน'] },
-  { file: 'equip_ups.png', name: 'UPS / แบตเตอรี่สำรอง', specs: ['สำรองไฟเมื่อไฟดับ (fail-safe) · ~1–3 kVA', 'online / line-interactive', 'คงการทำงานหยุดรถได้ช่วงไฟดับ'] },
-  { file: 'equip_speedbump.png', name: 'ลูกระนาดยาง (rubber speed bump)', specs: ['ยางรีไซเคิล modular · ถอด/ปรับตำแหน่งได้', 'บังคับความเร็ว ≤ 30 กม./ชม.', 'ติดตั้งไม่ต้องทุบผิวถนน (เหมาะเขตมรดก)'] },
-  { file: 'equip_pole.png', name: 'เสา/โครงติดตั้ง + เครือข่าย', specs: ['เสาเหล็กชุบกัลวาไนซ์ + แขนยื่น/ฐานราก', 'รองรับกล้อง/เซนเซอร์/ป้าย', 'เครือข่าย 4G/5G router หรือ fiber (งานส่วนเพิ่ม)'] },
+  { file: 'equip_mdb.png', name: 'ตู้ควบคุม + ตู้ไฟ MDB (แยกกัน)', specs: ['ตู้ IT (บันทึก/Edge AI/เครือข่าย) แยกจากตู้ไฟ MDB — กัน noise + ปลอดภัย', 'MDB IP55: เบรกเกอร์หลัก+ย่อย · RCBO 30mA กันไฟดูด · earth bar', 'กันฟ้าผ่า: SPD Type 1 (12.5–25 kA) + Type 2 + SPD IP68 กลางแจ้ง', 'ตู้เหล็ก IP55 แขวนเสา · พัดลม + เทอร์โมสตัทระบายความร้อน'] },
+  { file: 'equip_ups.png', name: 'UPS / สำรองไฟ + power', specs: ['UPS online double-conversion ~3 kVA + แบตเตอรี่', 'สำรองไฟเมื่อไฟดับ — คงการหยุดรถ/แจ้งเตือนต่อได้ (fail-safe)', 'PSU 24V DC 240W (DIN-rail) จ่ายเซนเซอร์/สแกนเนอร์'] },
+  { file: 'equip_speedbump.png', name: 'ลูกระนาดยาง (rubber speed bump)', specs: ['ยางอุตสาหกรรม modular · ติดตั้งด้วย epoxy ไม่ทุบผิวถนน (เหมาะเขตมรดก)', 'บังคับความเร็ว ≤ 30 กม./ชม. → กล้อง/สแกนแม่น + เบรกทัน', 'ถอด/ปรับตำแหน่งได้'] },
+  { file: 'equip_pole.png', name: 'เสา/โครงติดตั้ง + เครือข่าย', specs: ['เสาเหล็กชุบกัลวาไนซ์ ~6 ม. (hot-dip) + แขนยื่น · กราวด์ rod มอก. + สายทองแดง 35 มม.²', 'สวิตช์อุตสาหกรรม 5-port GbE (DIN-rail · -40~75°C)', 'router 4G/5G dual-SIM (failover) + RS-485 · เสาอากาศ + กันฟ้าผ่าสายสัญญาณ', 'ตัวเลือกไฟเบอร์ (fiber) — งานส่วนเพิ่ม'] },
 ];
 
 export function SpecSheet1() {
