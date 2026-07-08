@@ -36,17 +36,17 @@ function Photo({ file, h = 96, radius = 0, caption }) {
 /* ---------- Page 1 · roles + strengths/limits + fusion ---------- */
 const SENSORS = [
   {
-    color: G, soft: '#E7F0E9', name: 'เรดาร์', role: 'ยามด่านหน้า — ปลุก sensor หลักเฉพาะตอนจำเป็น',
+    color: G, soft: '#E7F0E9', file: 'sensor_radar.png', name: 'เรดาร์', role: 'ยามด่านหน้า — ปลุก sensor หลักเฉพาะตอนจำเป็น',
     pros: ['ตรวจจับรถได้ทุกสภาพอากาศ กลางคืน/หมอก', 'คัดกรอง → ยืดอายุ LiDAR'],
     cons: ['วัดความสูง/รูปทรงละเอียดไม่ได้'],
   },
   {
-    color: GOLD, soft: 'var(--h-gold-soft)', name: 'กล้องคู่ (ITS)', role: 'ประเมินความสูง + เก็บภาพหลักฐานเหตุการณ์',
+    color: GOLD, soft: 'var(--h-gold-soft)', file: 'sensor_camera.png', name: 'กล้องคู่ (ITS)', role: 'ประเมินความสูง + เก็บภาพหลักฐานเหตุการณ์',
     pros: ['ให้หลักฐาน+บริบทเหตุการณ์', 'อ่านป้ายทะเบียน'],
     cons: ['แม่นเมื่อรถช้า · แสงจ้า/หมอกลดระยะ'],
   },
   {
-    color: RED, soft: 'var(--h-red-soft)', name: 'เซนเซอร์สแกน (LiDAR)', role: 'วัดรูปทรง/ความสูงแม่นยำ ไม่พึ่งแสง',
+    color: RED, soft: 'var(--h-red-soft)', file: 'sensor_lidar.png', name: 'เซนเซอร์สแกน (LiDAR)', role: 'วัดรูปทรง/ความสูงแม่นยำ ไม่พึ่งแสง',
     pros: ['วัดสูงแม่นเชิงรูปทรง', 'เร็ว ไม่ต้องสะสมหลายเฟรม'],
     cons: ['ผิวดำ/เปียก สะท้อนน้อย → ระยะสั้นลง', 'มีชิ้นส่วนหมุน อายุจำกัด'],
   },
@@ -63,6 +63,7 @@ export function WhySensorsMain() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16, marginTop: 14 }}>
         {SENSORS.map((s) => (
           <div key={s.name} style={{ background: '#fff', border: '1px solid var(--h-line)', borderTop: `5px solid ${s.color}`, borderRadius: 14, overflow: 'hidden' }}>
+            <Photo file={s.file} h={168} />
             <div style={{ background: s.soft, padding: '9px 14px' }}>
               <div style={{ fontSize: 16, fontWeight: 800, color: s.color }}>{s.name}</div>
               <div style={{ fontSize: 12, color: 'var(--h-ink)', marginTop: 2, lineHeight: 1.3 }}>{s.role}</div>
