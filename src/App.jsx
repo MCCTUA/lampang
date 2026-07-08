@@ -22,6 +22,7 @@ import { SpecSheet1, SpecSheet2, SpecSheet3 } from './sections/SpecSheet.jsx';
 import ConfirmTN from './sections/ConfirmTN.jsx';
 import Agenda from './sections/Agenda.jsx';
 import SectionDivider from './sections/SectionDivider.jsx';
+import OverheightDemo from './sections/OverheightDemo.jsx';
 
 // Fixed-slide deck (1280×720). Each entry is one slide; long sections are
 // auto-scaled to fit for now and will be split into multiple slides next.
@@ -37,6 +38,7 @@ const slides = [
 
   { id: 'sec2', label: '— ส่วนที่ 2 · หลักการ 3 เซนเซอร์ & รีวิว', node: <SectionDivider n={2} title="หลักการ 3 เซนเซอร์ & รีวิวการตรวจจับ" items={['ทำไมต้องใช้ 3 เซนเซอร์', 'สภาพอากาศ / PM2.5', 'ประเภทรถ', 'สี / ผิว / ความมันวาว']} /> },
   { id: 'why1', label: 'ทำไมใช้ 3 เซนเซอร์ · บทบาท+ข้อดี/ข้อจำกัด', node: <WhySensorsMain /> },
+  { id: 'demo', label: 'คลิปจริง · กล้องตรวจรถสูง (กรุงเทพฯ)', node: <OverheightDemo /> },
   { id: 'review', label: 'รีวิว · สภาพอากาศ (PM2.5)', node: <SensorReview /> },
   { id: 'veh', label: 'รีวิว · ประเภทรถ (เทียบ 3 เซนเซอร์)', node: <VehicleReview /> },
   { id: 'color', label: 'รีวิว · สี/ผิว/ความมันวาว vs เซนเซอร์', node: <ColorReview /> },
