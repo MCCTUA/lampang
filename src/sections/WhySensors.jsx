@@ -64,7 +64,7 @@ export function WhySensorsMain() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16, marginTop: 14 }}>
         {SENSORS.map((s) => (
           <div key={s.name} style={{ background: '#fff', border: '1px solid var(--h-line)', borderTop: `5px solid ${s.color}`, borderRadius: 14, overflow: 'hidden' }}>
-            <Photo file={s.file} h={168} fit="contain" />
+            <Photo file={s.file} h={240} fit="contain" />
             <div style={{ background: s.soft, padding: '9px 14px' }}>
               <div style={{ fontSize: 16, fontWeight: 800, color: s.color }}>{s.name}</div>
               <div style={{ fontSize: 12, color: 'var(--h-ink)', marginTop: 2, lineHeight: 1.3 }}>{s.role}</div>
