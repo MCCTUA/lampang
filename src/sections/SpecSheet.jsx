@@ -6,10 +6,10 @@ const G = 'var(--h-green)';
 function Photo({ file, img }) {
   const [failed, setFailed] = useState(false);
   // fixed box · contain = show full device without distortion/heavy crop (works for photo or illustration)
-  const box = { width: '100%', height: 108, borderRadius: 8, border: '1px solid var(--h-gold)', display: 'block', background: 'var(--h-gold-soft)' };
+  const box = { width: '100%', height: 108, borderRadius: 8, border: '1px solid var(--h-gold)', display: 'block', background: 'var(--h-gold-soft)', boxSizing: 'border-box' };
   // `img` = full URL (ideal reference photo from net · no brand) · fallback to local file · fallback to labeled box
   const src = img || (file ? `./images/lampang/${file}` : '');
-  if (src && !failed) return <img src={src} alt="" onError={() => setFailed(true)} style={{ ...box, objectFit: 'contain', padding: 6, boxSizing: 'border-box' }} />;
+  if (src && !failed) return <img src={src} alt="" onError={() => setFailed(true)} style={{ ...box, objectFit: 'cover' }} />;
   return <div style={{ ...box, border: '2px dashed var(--h-gold)', background: 'var(--h-gold-soft)', color: '#7A5A1E', fontSize: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: 4 }}>{file}</div>;
 }
 
