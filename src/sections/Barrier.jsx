@@ -32,9 +32,9 @@ export default function Barrier() {
           <div style={{ background: '#fff', border: '1px solid var(--h-line)', borderLeft: `5px solid var(--h-gold)`, borderRadius: 12, padding: '12px 16px' }}>
             <div style={{ fontSize: 14.5, fontWeight: 800, color: '#8A5A12', marginBottom: 5 }}>กันชนราวสะพาน (โจทย์ที่แก้แล้ว)</div>
             <ul style={{ margin: 0, paddingLeft: 17, fontSize: 13.5, lineHeight: 1.5 }}>
-              <li>ถ้ารถชน แขน <strong>พับกลับทางต้นน้ำ</strong> (ด้านโล่ง) ไม่เหวี่ยงเข้าราวสะพาน</li>
+              <li>ถ้ารถชน แขน <strong>พับเก็บ</strong> (ด้านโล่ง) ไม่เหวี่ยงเข้าราวสะพาน</li>
               <li>ชนแรง → ข้อต่อ <strong>หลุดแบบเปลี่ยนได้</strong> + สลิงกันปลิว</li>
-              <li>ฐานอยู่บน <strong>ทางเดินใหม่</strong> ไม่แตะสะพาน/เสาหิน</li>
+              <li>ฐานอยู่บน <strong>ขอบราวทางเดิม</strong> ไม่แตะสะพาน/เสาหิน</li>
             </ul>
           </div>
         </div>
