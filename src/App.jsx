@@ -59,7 +59,7 @@ const slides = [
   { id: 'faq3', label: 'Q&A · สภาพแวดล้อม · ไม้กั้น/ปลอดภัย', node: <Faq3 /> },
   { id: 'faq4', label: 'Q&A · กฎหมาย · ดูแลรักษา · มรดก', node: <Faq4 /> },
 
-  { id: 'sec6', label: '— ภาคผนวก (Appendix)', node: <SectionDivider n={6} title="ภาคผนวก" kicker="ภาคผนวก · APPENDIX · ส่วนที่" items={['สเปกอุปกรณ์ (datasheet อ้างอิง)', 'LiDAR เชิงลึก', 'สิ่งที่ต้องยืนยันกับ ทน.', 'งานส่วนเพิ่ม 4G/Fiber']} /> },
+  { id: 'sec6', label: '— ภาคผนวก (Appendix)', node: <SectionDivider n={6} title="ภาคผนวก" kicker="ภาคผนวก · APPENDIX" items={['สเปกอุปกรณ์ (datasheet อ้างอิง)', 'LiDAR เชิงลึก', 'สิ่งที่ต้องยืนยันกับ ทน.']} /> },
   { id: 'spec1', label: 'สเปกอุปกรณ์ 1/3 (เซนเซอร์+Edge AI)', node: <SpecSheet1 /> },
   { id: 'spec2', label: 'สเปกอุปกรณ์ 2/3 (ไม้กั้น+ป้าย+ไฟ)', node: <SpecSheet2 /> },
   { id: 'spec3', label: 'สเปกอุปกรณ์ 3/3 (ไฟฟ้า+ลูกระนาด+โครงสร้าง)', node: <SpecSheet3 /> },
@@ -68,6 +68,8 @@ const slides = [
   { id: 'lidar3', label: 'LiDAR · ติดตั้ง & บำรุงรักษา', node: <Lidar3 /> },
   { id: 'lidar4', label: 'LiDAR · ข้อจำกัด', node: <Lidar4 /> },
   { id: 'confirm', label: 'สิ่งที่ต้องยืนยันกับ ทน. (ทำได้/ไม่ได้)', node: <ConfirmTN /> },
+
+  { id: 'sec-opt', label: '— งานส่วนเพิ่ม (Optional)', node: <SectionDivider n="＋" kicker="งานส่วนเพิ่ม · OPTIONAL" title="งานส่วนเพิ่ม (Optional)" items={['เก็บข้อมูลรวมศูนย์ (4G / Fiber)', 'ต่อยอดเชื่อมระบบในอนาคต']} /> },
   { id: 'cabinet', label: 'งานส่วนเพิ่ม · เก็บข้อมูลรวม (4G/Fiber)', node: <Cabinet /> },
 ];
 

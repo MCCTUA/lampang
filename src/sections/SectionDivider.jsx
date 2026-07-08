@@ -1,9 +1,10 @@
 import React from 'react';
 
 /* Full-bleed heritage-green section divider slide.
-   props: n (section number), title, items (sub-topics), kicker */
-export default function SectionDivider({ n, title, items = [], kicker = 'ส่วนที่' }) {
-  const nn = String(n).padStart(2, '0');
+   props: n (section number, or symbol e.g. "＋"), title, items, kicker (optional override) */
+export default function SectionDivider({ n, title, items = [], kicker }) {
+  const nn = typeof n === 'number' ? String(n).padStart(2, '0') : String(n);
+  const kick = kicker || `ส่วนที่ ${nn}`;
   return (
     <div
       className="slide-section"
@@ -32,7 +33,7 @@ export default function SectionDivider({ n, title, items = [], kicker = 'ส่�
       <div style={{ width: 72, height: 5, background: '#E7C46A', borderRadius: 3, marginBottom: 24 }} />
 
       <div style={{ fontSize: 17, letterSpacing: 3, color: '#E7C46A', fontWeight: 700, marginBottom: 12 }}>
-        {kicker} {nn}
+        {kick}
       </div>
 
       <h2 style={{ fontSize: 50, fontWeight: 800, lineHeight: 1.08, color: '#FFFFFF', margin: 0, maxWidth: 880 }}>
