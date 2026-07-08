@@ -17,10 +17,10 @@ export default function Agenda() {
   return (
     <Section id="agenda" tone="cream">
       <span className="inline-block text-[13px] font-bold rounded-full px-3.5 py-1" style={{ background: 'rgba(31,92,61,0.10)', color: G }}>
-        หัวข้อการนำเสนอ · Agenda
+        Agenda
       </span>
       <h2 className="font-bold tracking-tight mt-3" style={{ fontSize: 34, lineHeight: 1.12, color: G }}>
-        วันนี้เราจะคุยกันเรื่องอะไรบ้าง
+        หัวข้อการนำเสนอ
       </h2>
       <p className="mt-2" style={{ fontSize: 15.5, color: 'var(--h-muted)' }}>
         6 หัวข้อ — จากภาพรวมระบบ สู่แผนติดตั้งจริงในพื้นที่ · ปิดท้ายด้วย Q&A และภาคผนวกเชิงเทคนิค
