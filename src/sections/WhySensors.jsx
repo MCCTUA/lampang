@@ -52,29 +52,6 @@ const SENSORS = [
   },
 ];
 
-// 3-circle Venn — each circle a sensor; centre = solves everything.
-// Radar & LiDAR outlined together to show they must be paired.
-function VennDiagram() {
-  return (
-    <svg viewBox="0 0 470 372" style={{ width: '100%', height: 'auto', display: 'block' }} role="img" aria-label="Venn 3 เซนเซอร์">
-      {/* circles */}
-      <circle cx="180" cy="140" r="112" fill={G} fillOpacity="0.24" stroke={G} strokeWidth="3" />
-      <circle cx="290" cy="140" r="112" fill={GOLD} fillOpacity="0.22" stroke={GOLD} strokeWidth="2" />
-      <circle cx="235" cy="228" r="112" fill={RED} fillOpacity="0.20" stroke={RED} strokeWidth="3" strokeDasharray="7 5" />
-      {/* outer labels */}
-      <text x="92" y="60" fontSize="15" fontWeight="800" fill={G} textAnchor="middle">เรดาร์</text>
-      <text x="92" y="78" fontSize="11" fill="#555" textAnchor="middle">ทุกสภาพอากาศ</text>
-      <text x="386" y="60" fontSize="15" fontWeight="800" fill="#8A5A12" textAnchor="middle">กล้อง</text>
-      <text x="386" y="78" fontSize="11" fill="#555" textAnchor="middle">หลักฐาน/บริบท</text>
-      <text x="235" y="354" fontSize="15" fontWeight="800" fill={RED} textAnchor="middle">LiDAR</text>
-      <text x="235" y="370" fontSize="11" fill="#555" textAnchor="middle">รูปทรงแม่น</text>
-      {/* centre */}
-      <text x="235" y="150" fontSize="14.5" fontWeight="800" fill={G} textAnchor="middle">แก้ครบ</text>
-      <text x="235" y="170" fontSize="16" fontWeight="800" fill={G} textAnchor="middle">ทุกปัญหา ✓</text>
-    </svg>
-  );
-}
-
 export function WhySensorsMain() {
   return (
     <Section id="why1" tone="cream">
@@ -100,20 +77,23 @@ export function WhySensorsMain() {
           </div>
         ))}
       </div>
-      <div style={{ marginTop: 14, display: 'grid', gridTemplateColumns: '1fr 300px', gap: 20, alignItems: 'center' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-          <div style={{ background: 'var(--h-green-deep)', color: '#F3EFE2', borderRadius: 12, padding: '11px 18px' }}>
-            <div style={{ fontSize: 14, fontWeight: 800, color: '#E7C46A', marginBottom: 3 }}>หลักการเสริมกัน (fusion)</div>
-            <div style={{ fontSize: 13, lineHeight: 1.5 }}>
-              จุดร่วมของทั้ง 3 วง = <strong style={{ color: '#fff' }}>แก้ครบทุกปัญหา</strong> · ไม่มีสภาพใดที่ระบบตาบอดพร้อมกัน · ตัดสินแบบ voting ลดทั้งกั้นรถปกติผิด และปล่อยรถสูงหลุด
-            </div>
-          </div>
-          <div style={{ background: 'var(--h-red-soft)', border: `1.5px dashed ${RED}`, borderRadius: 12, padding: '10px 16px' }}>
-            <span style={{ fontSize: 13.5, fontWeight: 800, color: RED }}>⚠ ถ้ามี LiDAR ต้องมีเรดาร์ด้วย</span>
-            <span style={{ fontSize: 13, color: 'var(--h-ink)' }}> — เรดาร์ปลุก LiDAR (ยืดอายุ) + สู้หมอก/ฝนที่ LiDAR แพ้ (วง LiDAR เส้นประ = ต้องจับคู่กับวงเรดาร์)</span>
+      <div style={{ marginTop: 14, display: 'flex', flexDirection: 'column', gap: 12 }}>
+        <div style={{ background: 'var(--h-green-deep)', color: '#F3EFE2', borderRadius: 12, padding: '12px 20px' }}>
+          <div style={{ fontSize: 14.5, fontWeight: 800, color: '#E7C46A', marginBottom: 3 }}>หลักการเสริมกัน (fusion)</div>
+          <div style={{ fontSize: 13.5, lineHeight: 1.5 }}>
+            แต่ละตัวเก่งคนละด้าน รวมกันแล้ว <strong style={{ color: '#fff' }}>ไม่มีสภาพใดที่ระบบตาบอดพร้อมกัน</strong> · ตัดสินแบบ voting → ลดทั้งกั้นรถปกติผิด และปล่อยรถสูงหลุด
           </div>
         </div>
-        <VennDiagram />
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+          <div style={{ background: 'var(--h-red-soft)', border: `1.5px dashed ${RED}`, borderRadius: 12, padding: '11px 16px' }}>
+            <div style={{ fontSize: 13.8, fontWeight: 800, color: RED, marginBottom: 2 }}>⚠ ถ้ามี LiDAR ต้องมีเรดาร์ด้วย</div>
+            <div style={{ fontSize: 13, color: 'var(--h-ink)', lineHeight: 1.5 }}>เรดาร์ปลุก LiDAR (ยืดอายุ) + สู้หมอก/ฝนที่ LiDAR แพ้ — ทั้งคู่ต้องมาคู่กัน</div>
+          </div>
+          <div style={{ background: 'var(--h-gold-soft)', border: `2px solid ${GOLD}`, borderRadius: 12, padding: '11px 16px' }}>
+            <div style={{ fontSize: 14, fontWeight: 800, color: '#8A5A12', marginBottom: 2 }}>★ ยิ่งใช้ยิ่งแม่น</div>
+            <div style={{ fontSize: 13, color: 'var(--h-ink)', lineHeight: 1.5 }}>เรดาร์เห็นรถก่อน → “ปลุก” LiDAR/กล้องเฉพาะตอนจำเป็น + ป้อนข้อมูลให้ระบบเรียนรู้ต่อเนื่อง → ความแม่นยำเพิ่มขึ้นตามการใช้งาน</div>
+          </div>
+        </div>
       </div>
     </Section>
   );

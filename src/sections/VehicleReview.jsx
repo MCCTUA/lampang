@@ -2,33 +2,34 @@ import React, { useState } from 'react';
 import { Section } from '../components/ui.jsx';
 
 const G = 'var(--h-green)';
-const GOLD = 'var(--h-gold)';
 const RED = 'var(--h-red)';
 
-// score → color + label + bar width
-const SCORE = {
-  good: { c: G, w: 1.0, label: 'ตรวจดี' },
-  ok: { c: '#B07A1E', w: 0.6, label: 'พอใช้/ต้องทดสอบ' },
-  limit: { c: RED, w: 0.35, label: 'ข้อจำกัด' },
-  pass: { c: 'var(--h-green2)', w: 0.9, label: 'ผ่านปกติ (ไม่เข้าเกณฑ์)' },
+const LV = {
+  g: { bg: '#E7F0E9', c: G },
+  m: { bg: 'var(--h-gold-soft)', c: '#8A5A12' },
+  b: { bg: 'var(--h-red-soft)', c: RED },
 };
+function Cell({ lv, text }) {
+  const s = LV[lv];
+  return <span style={{ display: 'block', background: s.bg, color: s.c, borderRadius: 8, padding: '6px 8px', fontSize: 12, fontWeight: 700, textAlign: 'center', lineHeight: 1.25 }}>{text}</span>;
+}
 
-// รูป: วางลิงก์อินเทอร์เน็ตในฟิลด์ img (เว้นว่าง = แสดงกรอบชื่อรถ)
-const VEHICLES = [
-  { name: 'รถบรรทุก 6 ล้อ', note: 'สูงเกินได้ · ตัวทึบชัดเจน', score: 'good', img: '' },
-  { name: 'รถกระบะตู้ทึบ / หลังคาสูง', note: 'ห้องเย็น/ตู้ทึบ · รูปทรงชัด', score: 'good', img: '' },
-  { name: 'รถกระบะ (เปล่า)', note: 'ต่ำกว่า 3.3 ม. · ผ่านปกติ', score: 'pass', img: '' },
-  { name: 'รถเก๋ง', note: 'ต่ำกว่า 3.3 ม. · ผ่านปกติ', score: 'pass', img: '' },
-  { name: 'รถกระบะคอกเปล่า สีดำ', note: 'LiDAR สะท้อนน้อย → เสริมเรดาร์/กล้อง', score: 'limit', img: '' },
-  { name: 'รถพาดเหล็ก/ไม้ยาว ยื่นสูง', note: 'บาง · รูปทรงไม่สม่ำเสมอ · ตัวอย่างน้อย', score: 'limit', img: '' },
-  { name: 'รถบรรทุกโปร่ง/ตาข่าย/นั่งร้าน', note: 'ไม่ทึบ → ต้องเก็บข้อมูลเพิ่ม', score: 'ok', img: '' },
-];
-
+// รูป: วางลิงก์อินเทอร์เน็ต/ไฟล์ในฟิลด์ img (เว้นว่าง = กรอบ placeholder)
 function VImg({ img, name }) {
   const [failed, setFailed] = useState(!img);
-  if (!failed && img) return <img src={img} alt={name} onError={() => setFailed(true)} style={{ width: '100%', height: 56, objectFit: 'cover', borderRadius: 8, border: '1px solid var(--h-line)', display: 'block' }} />;
-  return <div style={{ width: '100%', height: 56, borderRadius: 8, border: '2px dashed var(--h-gold)', background: 'var(--h-gold-soft)', color: '#7A5A1E', fontSize: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: 3 }}>รูป (ลิงก์)</div>;
+  if (!failed && img) return <img src={img} alt={name} onError={() => setFailed(true)} style={{ width: 60, height: 42, objectFit: 'cover', borderRadius: 7, border: '1px solid var(--h-line)', flexShrink: 0, display: 'block' }} />;
+  return <div style={{ width: 60, height: 42, borderRadius: 7, border: '2px dashed var(--h-gold)', background: 'var(--h-gold-soft)', color: '#7A5A1E', fontSize: 8.5, display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', flexShrink: 0, padding: 2 }}>รูป</div>;
 }
+
+// vehicle | [cam,radar,lidar] each = [level,text]
+const ROWS = [
+  { name: 'รถบรรทุก 6 ล้อ', note: 'ตัวทึบ สูงชัด', img: '', cam: ['g', 'ดี'], radar: ['g', 'ดี'], lidar: ['g', 'ดีมาก'] },
+  { name: 'รถกระบะตู้ทึบ / หลังคาสูง', note: 'รูปทรงชัด', img: '', cam: ['g', 'ดี'], radar: ['g', 'ดี'], lidar: ['g', 'ดีมาก'] },
+  { name: 'รถกระบะคอกเปล่า สีดำ', note: 'ผิวดำ สะท้อนน้อย', img: '', cam: ['m', 'ดำ · คืนต้อง IR'], radar: ['g', 'ไม่ขึ้นกับสี'], lidar: ['b', 'สะท้อนน้อย'] },
+  { name: 'รถพาดเหล็ก / ไม้ยาว ยื่นสูง', note: 'บาง · ตัวอย่างน้อย', img: '', cam: ['m', 'บาง/ต้องข้อมูล'], radar: ['m', 'รูปทรงบาง'], lidar: ['m', 'จับขอบบนได้'] },
+  { name: 'รถบรรทุกโปร่ง / ตาข่าย / นั่งร้าน', note: 'ไม่ทึบ', img: '', cam: ['m', 'ต้องเก็บข้อมูล'], radar: ['g', 'ตรวจได้'], lidar: ['m', 'โปร่งอาจทะลุ'] },
+  { name: 'รถเก๋ง / กระบะเปล่า (ต่ำ 3.3 ม.)', note: 'ไม่เข้าเกณฑ์', img: '', cam: ['g', 'ผ่านปกติ'], radar: ['g', 'ผ่านปกติ'], lidar: ['g', 'ผ่านปกติ'] },
+];
 
 export default function VehicleReview() {
   return (
@@ -37,37 +38,41 @@ export default function VehicleReview() {
         รีวิว · ประเภทรถ
       </span>
       <h2 className="font-bold tracking-tight mt-2.5" style={{ fontSize: 29, lineHeight: 1.15, color: G }}>
-        รถแต่ละประเภท ตรวจความสูงได้ดีแค่ไหน
+        รถแต่ละประเภท — เทียบการตรวจของ 3 เซนเซอร์
       </h2>
       <p className="mt-1.5" style={{ fontSize: 14, color: 'var(--h-muted)' }}>
-        เฉพาะรถที่เข้าถนนแคบ/เขตมรดกได้จริง (รถบัส/พ่วง/คอนเทนเนอร์เข้าไม่ได้ ตัดออก) — แถบสีคือระดับการตรวจจับของระบบ 3 เซนเซอร์
+        เฉพาะรถที่เข้าถนนแคบ/เขตมรดกได้จริง (รถบัส/พ่วง/คอนเทนเนอร์เข้าไม่ได้ ตัดออก) — เขียว = ดี · เหลือง = จำกัด · แดง = แพ้
       </p>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginTop: 14 }}>
-        {VEHICLES.map((v) => {
-          const s = SCORE[v.score];
-          const col = s.c;
-          return (
-            <div key={v.name} style={{ display: 'grid', gridTemplateColumns: '92px 1fr 250px', gap: 14, alignItems: 'center', background: '#fff', border: '1px solid var(--h-line)', borderRadius: 10, padding: '8px 14px' }}>
-              <VImg img={v.img} name={v.name} />
+      <div style={{ marginTop: 12 }}>
+        {/* header */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1.7fr 1fr 1fr 1fr', gap: 9, marginBottom: 7 }}>
+          <div />
+          {[['กล้อง', true], ['เรดาร์', false], ['LiDAR', false]].map(([h, camCol]) => (
+            <div key={h} style={{ textAlign: 'center', fontSize: 14, fontWeight: 800, color: '#fff', background: camCol ? RED : G, borderRadius: 8, padding: '6px 0' }}>{h}</div>
+          ))}
+        </div>
+        {ROWS.map((r) => (
+          <div key={r.name} style={{ display: 'grid', gridTemplateColumns: '1.7fr 1fr 1fr 1fr', gap: 9, alignItems: 'center', marginBottom: 7 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+              <VImg img={r.img} name={r.name} />
               <div>
-                <div style={{ fontSize: 14.5, fontWeight: 700, color: 'var(--h-ink)' }}>{v.name}</div>
-                <div style={{ fontSize: 12, color: 'var(--h-muted)', marginTop: 1 }}>{v.note}</div>
-              </div>
-              <div>
-                <div style={{ position: 'relative', height: 16, background: '#EDE8DA', borderRadius: 8 }}>
-                  <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: `${s.w * 100}%`, background: col, borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'flex-end', paddingRight: 8 }}>
-                    <span style={{ fontSize: 10.5, fontWeight: 800, color: '#fff' }}>{s.label}</span>
-                  </div>
-                </div>
+                <div style={{ fontSize: 13.5, fontWeight: 700, color: 'var(--h-ink)', lineHeight: 1.2 }}>{r.name}</div>
+                <div style={{ fontSize: 11, color: 'var(--h-muted)' }}>{r.note}</div>
               </div>
             </div>
-          );
-        })}
+            <Cell lv={r.cam[0]} text={r.cam[1]} />
+            <Cell lv={r.radar[0]} text={r.radar[1]} />
+            <Cell lv={r.lidar[0]} text={r.lidar[1]} />
+          </div>
+        ))}
       </div>
 
-      <p style={{ fontSize: 11.5, color: 'var(--h-muted)', marginTop: 10 }}>
-        ระดับเชิงคุณภาพ (ประมาณการ) · ข้อจำกัดลดความเสี่ยงด้วย fusion 3 ตัว + สะสมข้อมูลต่อเนื่อง + ไม้กั้นกายภาพ · รูปรถใส่เป็นลิงก์ (แก้ฟิลด์ img ในโค้ด)
+      <div style={{ marginTop: 10, background: '#E7F0E9', border: `1px solid ${G}`, borderRadius: 12, padding: '11px 18px', fontSize: 13.5, lineHeight: 1.55 }}>
+        <strong style={{ color: G }}>เคสยากที่สุด = ผิวดำ + วัตถุบางยื่นสูง</strong> — กล้อง/LiDAR แพ้บางจังหวะ แต่เรดาร์ครอบให้ · ลดเสี่ยงด้วย fusion 3 ตัว + สะสมข้อมูลต่อเนื่อง (ยิ่งใช้ยิ่งแม่น) + ไม้กั้นเป็นด่านสุดท้าย
+      </div>
+      <p style={{ fontSize: 11.5, color: 'var(--h-muted)', marginTop: 7 }}>
+        ระดับเชิงคุณภาพ (ประมาณการ) · ยืนยันด้วยการทดสอบหน้างาน · รูปรถใส่เป็นลิงก์/ไฟล์ได้ (ฟิลด์ img ในโค้ด)
       </p>
     </Section>
   );
