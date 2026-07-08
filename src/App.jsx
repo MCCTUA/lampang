@@ -7,6 +7,7 @@ import SpeedDistance from './sections/SpeedDistance.jsx';
 import Frames from './sections/Frames.jsx';
 import { WhySensorsMain } from './sections/WhySensors.jsx';
 import SensorReview from './sections/SensorReview.jsx';
+import SensorMatrix from './sections/SensorMatrix.jsx';
 import VehicleReview from './sections/VehicleReview.jsx';
 import ColorReview from './sections/ColorReview.jsx';
 import LedSign from './sections/LedSign.jsx';
@@ -30,6 +31,7 @@ const slides = [
   { id: 'frames', label: 'จำนวนเฟรม/สแกน vs ความเร็ว', node: <Frames /> },
   { id: 'why1', label: 'ทำไมใช้ 3 เซนเซอร์ · บทบาท+ข้อดี/ข้อจำกัด', node: <WhySensorsMain /> },
   { id: 'review', label: 'รีวิว · สภาพอากาศ (PM2.5)', node: <SensorReview /> },
+  { id: 'matrix', label: 'เปรียบเทียบ 3 เซนเซอร์ (กล้อง/Radar/LiDAR)', node: <SensorMatrix /> },
   { id: 'veh', label: 'รีวิว · ประเภทรถ vs การตรวจ', node: <VehicleReview /> },
   { id: 'color', label: 'รีวิว · สี/ผิว/ความมันวาว vs เซนเซอร์', node: <ColorReview /> },
   { id: 'led', label: 'ป้ายจอ LED (ข้อดี+ระยะ+BOQ)', node: <LedSign /> },
