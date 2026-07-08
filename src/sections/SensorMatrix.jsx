@@ -62,6 +62,9 @@ export default function SensorMatrix() {
       <div style={{ marginTop: 8, background: 'var(--h-red-soft)', border: `1.5px solid ${RED}`, borderRadius: 12, padding: '12px 18px', fontSize: 14, lineHeight: 1.6 }}>
         <strong style={{ color: RED }}>ถ้าลูกค้าเลือก “กล้องอย่างเดียว”</strong> = ต้องยอมรับช่องแดง/เหลืองของคอลัมน์กล้อง (สภาพอากาศ · กลางคืน · ผิวดำ · รถเร็ว · วัดสูงคลาด) ที่ <strong>เรดาร์ + LiDAR จะครอบให้</strong> — จึงแนะนำใช้ 3 ตัวร่วมกัน
       </div>
+      <div style={{ marginTop: 8, background: '#E7F0E9', border: `1.5px solid ${G}`, borderRadius: 12, padding: '11px 18px', fontSize: 13.8, lineHeight: 1.55 }}>
+        <strong style={{ color: G }}>ยิ่งใช้ยิ่งแม่น</strong> — เรดาร์เห็นรถก่อน → “ปลุก” LiDAR/กล้องเฉพาะตอนจำเป็น + ป้อนข้อมูลให้ระบบเรียนรู้ต่อเนื่อง → ความแม่นยำเพิ่มขึ้นตามการใช้งาน
+      </div>
     </Section>
   );
 }
