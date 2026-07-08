@@ -99,7 +99,7 @@ export function R1Map() {
       <text x="180" y="182" fontSize="11" fill={GOLD}>ลูกระนาด</text>
       <circle cx="470" cy="110" r="6" fill="#8A6D12" />
       <rect x="462" y="60" width="16" height="35" fill="#6A7F52" />
-      <text x="404" y="50" fontSize="11.5" fill="#5A6A2F">ป้าย LED + ตู้/สมองกล</text>
+      <text x="404" y="50" fontSize="11.5" fill="#5A6A2F">ป้าย LED + ตู้/Edge AI</text>
       <text x="430" y="150" fontSize="11.5">จุด Sirimas</text>
       <circle cx="880" cy="110" r="7" fill={RED} />
       <rect x="872" y="70" width="16" height="25" fill={RED} />
@@ -215,14 +215,14 @@ export function CabinetDiagram() {
       <text x="14" y="158" fontSize="12" fill="#4A6A6D">แม่น้ำวัง / สะพาน</text>
       <rect x="120" y="210" width="150" height="46" rx="8" fill="#E7F0E9" stroke={G} />
       <text x="195" y="232" fontSize="13" fill={G} textAnchor="middle" fontWeight="700">ตู้ใต้ (S-CAB)</text>
-      <text x="195" y="249" fontSize="11.5" fill={G} textAnchor="middle">สมองกล ×2 = R1 + R3</text>
+      <text x="195" y="249" fontSize="11.5" fill={G} textAnchor="middle">Edge AI ×2 = R1 + R3</text>
       <line x1="195" y1="210" x2="140" y2="170" stroke={G2} strokeWidth="3" />
       <text x="60" y="195" fontSize="11">← R1 (Sirimas 55–75ม.)</text>
       <line x1="230" y1="210" x2="330" y2="175" stroke={GOLD} strokeWidth="3" strokeDasharray="5 4" />
       <text x="300" y="200" fontSize="11" fill={GOLD}>R3 ตลาดเก่า (ถ้าเลือก)</text>
       <rect x="640" y="60" width="150" height="46" rx="8" fill="#F3E6D3" stroke={GOLD} />
       <text x="715" y="82" fontSize="13" fill={GOLD} textAnchor="middle" fontWeight="700">ตู้เหนือ (N-CAB)</text>
-      <text x="715" y="99" fontSize="11.5" fill={GOLD} textAnchor="middle">สมองกล ×1 = R2</text>
+      <text x="715" y="99" fontSize="11.5" fill={GOLD} textAnchor="middle">Edge AI ×1 = R2</text>
       <line x1="715" y1="106" x2="760" y2="140" stroke={GOLD} strokeWidth="3" />
       <text x="770" y="120" fontSize="11">R2 (เสากลาง 50ม.)</text>
       <path d="M270 220 C 500 260, 500 40, 640 80" fill="none" stroke="#7C93A6" strokeWidth="2" strokeDasharray="3 5" />

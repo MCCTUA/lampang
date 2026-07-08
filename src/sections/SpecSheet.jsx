@@ -41,7 +41,7 @@ const SET1 = [
   { file: 'sensor_radar.png', name: 'เรดาร์ตรวจจับยานพาหนะ', specs: ['ความถี่ 76–77 GHz (FMCW mmWave)', 'ระยะตรวจจับสูงสุด ~150–200 ม. · วัดความเร็ว 0–~250 กม./ชม.', 'ความแม่นระยะ ±0.1–0.5 ม. · มุมมอง ~±60° · ติดตามหลายเป้าพร้อมกัน', 'ทุกสภาพอากาศ (กลางคืน/หมอก/ฝน) · IP67 · 12–24 VDC'] },
   { file: 'sensor_camera.png', name: 'กล้องบันทึกเหตุการณ์ (ITS)', specs: ['เซนเซอร์ 2–4 MP (1080p/1440p) · 25–60 fps', 'ชัตเตอร์ 1/1000–1/10000 วิ (หยุดภาพไม่เบลอ) · WDR ≥ 120 dB', 'Day/Night + IR-cut · เลนส์ varifocal · GigE/RTSP', 'IP67 · -30 ถึง +60°C · PoE/12 VDC'] },
   { file: 'sensor_lidar.png', name: 'เซนเซอร์สแกนระยะ (2D LiDAR)', specs: ['Time-of-flight 905 nm · Class 1 (ปลอดภัยต่อสายตา)', 'มุมสแกน ~275° · อัตรา 10–80 Hz · ละเอียด 0.05–0.25°', 'ระยะ 0.08–25 ม. (สะท้อน 90%) · ±10 มม. · ทำซ้ำ ≤5 มม.', 'โซนตรวจสูงสุด ~16 ชุด × 3 โซน · IP67 · Ethernet + I/O'] },
-  { file: 'equip_ai_box.png', name: 'สมองกลประมวลผล AI (Edge AI Box)', specs: ['หน่วยเร่ง AI ~20–100 TOPS · GPU + CPU + AI accelerator ในตัว', 'ประมวลผลเรียลไทม์หน้างาน รองรับหลายกล้อง/เซนเซอร์ · ไม่พึ่งเครือข่าย', 'I/O: GPIO คุมไม้กั้น/ป้าย/strobe · Ethernet · 4G/5G', 'อุณหภูมิใช้งานกว้าง (industrial) · 12–19 VDC'] },
+  { file: 'equip_ai_box.png', name: 'Edge AI Computer', specs: ['หน่วยเร่ง AI ~20–100 TOPS · GPU + CPU + AI accelerator ในตัว', 'ประมวลผลเรียลไทม์หน้างาน รองรับหลายกล้อง/เซนเซอร์ · ไม่พึ่งเครือข่าย', 'I/O: GPIO คุมไม้กั้น/ป้าย/strobe · Ethernet · 4G/5G', 'อุณหภูมิใช้งานกว้าง (industrial) · 12–19 VDC'] },
 ];
 
 const SET2 = [
@@ -59,7 +59,7 @@ const SET3 = [
 ];
 
 export function SpecSheet1() {
-  return <SpecPage id="spec1" tone="cream" title="สเปกอุปกรณ์ (1/3) — เซนเซอร์ตรวจจับ & สมองกล AI" rows={SET1} />;
+  return <SpecPage id="spec1" tone="cream" title="สเปกอุปกรณ์ (1/3) — เซนเซอร์ตรวจจับ & Edge AI Computer" rows={SET1} />;
 }
 export function SpecSheet2() {
   return <SpecPage id="spec2" tone="soft" title="สเปกอุปกรณ์ (2/3) — ไม้กั้น · ป้าย · ไฟเตือน" rows={SET2} />;

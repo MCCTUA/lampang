@@ -38,7 +38,7 @@ const slides = [
   { id: 'faq2', label: 'Q&A · ระบบ/ไฟฟ้า/เครือข่าย', node: <Faq2 /> },
   { id: 'faq3', label: 'Q&A · สภาพแวดล้อม · ไม้กั้น/ปลอดภัย', node: <Faq3 /> },
   { id: 'faq4', label: 'Q&A · กฎหมาย · ดูแลรักษา · มรดก', node: <Faq4 /> },
-  { id: 'spec1', label: 'สเปกอุปกรณ์ 1/3 (เซนเซอร์+สมองกล AI)', node: <SpecSheet1 /> },
+  { id: 'spec1', label: 'สเปกอุปกรณ์ 1/3 (เซนเซอร์+Edge AI)', node: <SpecSheet1 /> },
   { id: 'spec2', label: 'สเปกอุปกรณ์ 2/3 (ไม้กั้น+ป้าย+ไฟ)', node: <SpecSheet2 /> },
   { id: 'spec3', label: 'สเปกอุปกรณ์ 3/3 (ไฟฟ้า+ลูกระนาด+โครงสร้าง)', node: <SpecSheet3 /> },
   { id: 'lidar1', label: 'LiDAR · หลักการทำงาน', node: <Lidar1 /> },

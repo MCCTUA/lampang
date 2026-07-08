@@ -33,10 +33,11 @@ function DistanceStrip() {
 }
 
 const BOQ = [
-  ['ป้ายจอ LED', 'จอ full-color กลางแจ้ง · ปรับความสว่างอัตโนมัติ'],
-  ['ตู้ควบคุม + AI Box', 'สมองกลประมวลผล (edge) + ชุดควบคุมป้าย'],
-  ['ตู้ไฟ MDB', 'ตู้จ่ายไฟหลัก + เบรกเกอร์/กันไฟรั่ว'],
-  ['ระบบ Network', 'อุปกรณ์เครือข่าย (Switch/Router) + เชื่อมต่อสื่อสารระหว่างจุด'],
+  ['ป้ายแสดงผล LED', 'จอ full-color กลางแจ้ง · ปรับความสว่างอัตโนมัติ'],
+  ['ตู้ควบคุม', 'ชุดควบคุมป้าย + สั่งการอุปกรณ์ในโซน'],
+  ['Edge AI Computer', 'ประมวลผล AI เรียลไทม์ที่หน้างาน (edge)'],
+  ['Network System', 'อุปกรณ์เครือข่าย (Switch/Router) + เชื่อมต่อระหว่างจุด'],
+  ['MDB', 'ตู้จ่ายไฟหลัก + เบรกเกอร์/กันไฟรั่ว'],
 ];
 
 export default function LedSign() {
@@ -76,7 +77,7 @@ export default function LedSign() {
       {/* BOQ */}
       <div style={{ marginTop: 14 }}>
         <div style={{ fontSize: 13.5, fontWeight: 700, color: G, marginBottom: 8 }}>BOQ ชุดป้าย LED</div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: 14 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 12 }}>
           {BOQ.map(([t, d]) => (
             <div key={t} style={{ background: 'var(--h-cream-soft)', border: '1px solid var(--h-line)', borderRadius: 12, padding: '11px 16px' }}>
               <div style={{ fontSize: 14.5, fontWeight: 700, color: 'var(--h-ink)' }}>{t}</div>
