@@ -12,6 +12,7 @@ import ColorReview from './sections/ColorReview.jsx';
 import LedSign from './sections/LedSign.jsx';
 import BarrierSpec from './sections/BarrierSpec.jsx';
 import Barrier from './sections/Barrier.jsx';
+import BarrierHousing from './sections/BarrierHousing.jsx';
 import { RoadR1, RoadR2, RoadR3 } from './sections/RoadsSplit.jsx';
 import Cabinet from './sections/Cabinet.jsx';
 import Timeline from './sections/Timeline.jsx';
@@ -35,6 +36,7 @@ const slides = [
   { id: 'led', label: 'ป้ายจอ LED (ข้อดี+ระยะ+BOQ)', node: <LedSign /> },
   { id: 'barrier-spec', label: 'ไม้กั้น — BOQ & สเปก + ลูกระนาด', node: <BarrierSpec /> },
   { id: 'barrier', label: 'ไม้กั้น = ประตูจำกัดความสูง 3.3 ม.', node: <Barrier /> },
+  { id: 'barrier-housing', label: '6 แบบ เสารับ/ครอบไม้กั้น (มรดก)', node: <BarrierHousing /> },
   { id: 'r1', label: 'R1 · รัษฎาใต้ (แผนที่+อุปกรณ์+รูป)', node: <RoadR1 /> },
   { id: 'r2', label: 'R2 · รัษฎาเหนือ (แผนที่+อุปกรณ์+รูป)', node: <RoadR2 /> },
   { id: 'r3', label: 'R3 · ตลาดเก่า (แผนที่+อุปกรณ์+รูป)', node: <RoadR3 /> },

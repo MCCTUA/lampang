@@ -22,7 +22,7 @@ function Photo({ file, h = 96, radius = 0, caption }) {
   return (
     <figure style={{ margin: 0 }}>
       {!failed ? (
-        <img src={`./images/lampang/${file}`} alt={caption || ''} onError={() => setFailed(true)} style={{ ...box, objectFit: 'cover', border: '1px solid var(--h-line)', display: 'block' }} />
+        <img src={`./images/lampang/${file}`} alt={caption || ''} onError={() => setFailed(true)} style={{ ...box, objectFit: 'cover', display: 'block', boxSizing: 'border-box', background: 'var(--h-gold-soft)' }} />
       ) : (
         <div style={{ ...box, border: '2px dashed var(--h-gold)', background: 'var(--h-gold-soft)', color: '#7A5A1E', fontSize: 11.5, display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: 6 }}>
           วางรูป: {file}
