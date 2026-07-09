@@ -73,7 +73,7 @@ export default function Hero() {
               className="rounded-full px-7 py-3 text-[15px] font-semibold cursor-pointer"
               style={{ background: 'transparent', color: '#F6EFD9', border: '1px solid rgba(246,239,217,0.5)' }}
             >
-              หัวใจระบบ: ไม้กั้น 3.3 ม.
+              หัวใจระบบ: การกั้นที่ความสูง 3.3 ม.
             </button>
           </div>
 
